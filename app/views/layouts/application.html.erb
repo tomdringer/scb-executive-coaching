@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScbExecutiveCoaching</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body class="font-montserrat">
+    <header class="bg-black" data-controller="menu" data-hidden-toggle-class="hidden">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto" src="<%= image_path('scb-logo-white-text') %>" alt="SCB Logo">
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <!-- Mobile menu button -->
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"  data-action="click->menu#updateNav">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" aria-hidden="true" data-slot="icon" data-menu-target="buttonIcon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="#intro" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Intro</a>
+          <a href="#about" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">About</a>
+          <a href="#services" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Services</a>
+          <a href="#story" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Story</a>
+          <a href="#reviews" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Reviews</a>
+          <a href="#contact" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Contact</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm font-semibold leading-6 text-scb-white">Log in <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+      <!-- Mobile menu, show hide div -->
+      <div class="lg:hidden hidden fixed top-0" role="dialog" aria-modal="true" data-menu-target="nav" >
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-0 z-10"></div>
+        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-scb-black text-scb-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10" data-menu-target="nav">
+          <div class="flex items-center justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto" src="<%= image_path('scb-logo-white-text') %>" alt="SCB Logo" />
+            </a>
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"  data-action="click->menu#updateNav">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" aria-hidden="true" data-slot="icon" data-menu-target="buttonIcon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root" data-menu-target="nav">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a href="#intro" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Intro</a>
+                <a href="#about" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">About</a>
+                <a href="#services" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Services</a>
+                <a href="#story" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Story</a>
+                <a href="#reviews" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Reviews</a>
+                <a href="#contact" data-controller="scroll-to" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Contact</a>
+              </div>
+              <div class="py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Log in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+  </body>
+</html>
