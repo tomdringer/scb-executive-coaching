@@ -1,12 +1,17 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import { Application } from "@hotwired/stimulus"
 
-
 import MenuController from "./controllers/menu_controller"
+import Carousel from "./controllers/carousel_controller"
+
 
 window.Stimulus = Application.start()
 
+Stimulus.register("carousel", Carousel)
+
 Stimulus.register("menu", MenuController);
+
+Stimulus.debug = process.env.NODE_ENV === "development"
 
 const events = [
   "turbo:fetch-request-error",
