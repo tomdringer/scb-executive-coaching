@@ -2,12 +2,12 @@
 import { Application } from "@hotwired/stimulus"
 
 import MenuController from "./controllers/menu_controller"
-import Carousel from "./controllers/carousel_controller"
+import CarouselController from "./controllers/carousel_controller"
 
 
 window.Stimulus = Application.start()
 
-Stimulus.register("carousel", Carousel)
+Stimulus.register("carousel", CarouselController)
 
 Stimulus.register("menu", MenuController);
 
