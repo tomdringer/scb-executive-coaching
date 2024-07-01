@@ -1,2 +1,2 @@
-js: yarn build --watch
+js: yarn build_dev --watch
 css: bin/rails tailwindcss:watch
