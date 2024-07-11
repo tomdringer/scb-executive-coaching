@@ -1,5 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import { Application } from "@hotwired/stimulus"
+import "@hotwired/turbo-rails";
 
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
@@ -38,3 +39,6 @@ events.forEach(e => {
     console.log(e);
   });
 });
+import "trix"
+import "@rails/actiontext"
+import "@hotwired/turbo-rails"
