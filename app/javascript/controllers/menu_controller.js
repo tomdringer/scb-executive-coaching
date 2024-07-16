@@ -4,8 +4,10 @@ export default class MenuController extends Controller {
   static targets = [ "nav"]
 
   updateNav(event) {
-    event.preventDefault();
+    //event.preventDefault();
     event.stopPropagation();
     this.navTarget.classList.toggle('hidden');
   }
+
+
 }

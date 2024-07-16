@@ -1,21 +1,15 @@
 <section id="services" class="bg-scb-black text-scb-white">
   <div class="container mx-auto p-3">
     <div class="flex flex-col items-center justify-center py-16">
-      <h2 class="text-3xl font-poppins font-light mb-5">Our Services</h2>
-
-      <h3 class="font-poppins font-light mb-5">One-on-One Coaching</h3>
-
-      <p class="mb-5">Our one-on-one coaching sessions are tailored to your specific needs, providing personalized guidance and support to help you achieve your goals.</p>
-
-      <img src="<%= image_path('sand') %>" class="h-2/3 w-2/3 rounded-2xl mb-5" alt="sand" />
-
-      <h3 class="font-poppins font-light mb-5">Group Coaching</h3>
-
-      <p>Our group coaching programs offer a collaborative and supportive environment, allowing you to learn from and connect
-        with other like-minded professionals.</p>
-
-      <img src="<%= image_path('bulb') %>" class="h-2/3 w-2/3 rounded-2xl mt-5" alt="sand" />
-
-    </div>
+      <% if services.blank? %>
+        <%= link_to 'Create', new_service_path %>
+      <% else %>
+        <h1 class="text-4xl font-bold mb-5 font-poppins font-light tracking-normal"><%= services.title %></h1>
+        <p class="text-lg mb-5"><%= services.body %></p>
+        <%= image_tag(services.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
+        <%= image_tag(services.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
+        </div>
+        <%= link_to 'Edit', edit_service_path(services.id), data: { turbo_frame: 'services' } %>
+      <% end %>
   </div>
 </section>

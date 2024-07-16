@@ -3,9 +3,21 @@
     <%=render partial: 'home/intros', locals: { intros: @intros } %>
   <% end %>
 
-  <%= render partial: 'home/about' %>
-  <%= render partial: 'home/services' %>
-  <%= render partial: 'home/story' %>
-  <%= render partial: 'home/reviews' %>
+  <%=  turbo_frame_tag "abouts" do %>
+    <%= render partial: 'home/about', locals: { about: @about} %>
+  <% end %>
+
+  <%=  turbo_frame_tag "services" do %>
+    <%= render partial: 'home/services',  locals: { services: @services} %>
+  <% end %>
+
+  <%= turbo_frame_tag "stories" do %>
+    <%= render partial: 'home/story',  locals: { stories: @stories}%>
+  <% end %>
+
+  <%= turbo_frame_tag "reviews" do %>
+    <%= render partial: 'home/reviews',  locals: { reviews: @reviews} %>
+  <% end %>
+
   <%= render partial: 'home/contact' %>
 </div>

@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_07_113015) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_15_191412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abouts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title_colour"
+    t.string "title_size"
+    t.string "body_text_colour"
+    t.string "body_text_size"
+    t.string "link_colour"
+    t.boolean "hide_title"
+    t.string "background_colour"
+  end
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +76,42 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_113015) do
   end
 
   create_table "intros", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title_colour"
+    t.string "title_size"
+    t.string "body_text_colour"
+    t.string "body_text_size"
+    t.string "link_colour"
+    t.boolean "hide_title"
+    t.string "background_colour"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title_colour"
+    t.string "title_size"
+    t.string "body_text_colour"
+    t.string "body_text_size"
+    t.string "link_colour"
+    t.boolean "hide_title"
+    t.string "background_colour"
+  end
+
+  create_table "stories", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false

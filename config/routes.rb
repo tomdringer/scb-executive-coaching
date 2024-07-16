@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :reviews
+  resources :stories
+  resources :services
+  resources :abouts
   resources :intros
   resources :contacts
   root 'home#index'
@@ -9,6 +13,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :intros, only: [:new, :create, :show, :edit, :update]
+  resources :abouts, only: [:new, :create, :show, :edit, :update]
+  resources :reviews, only: [:new, :create, :show, :edit, :update]
+  resources :stories, only: [:new, :create, :show, :edit, :update]
+  resources :services, only: [:new, :create, :show, :edit, :update]
 
   # Defines the root path route ("/")
   # root "posts#index"
