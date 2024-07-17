@@ -1,5 +1,4 @@
-require 'active_support/message_verifier'
-
+# config/initializers/global_id.rb
 Rails.application.config.to_prepare do
   key_generator = ActiveSupport::KeyGenerator.new(
     Rails.application.secret_key_base,
