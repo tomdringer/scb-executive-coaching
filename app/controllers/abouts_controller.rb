@@ -1,10 +1,6 @@
 class AboutsController < ApplicationController
   before_action :set_about, only: [:edit, :update]
 
-  def index
-    @about = About.first_or_create
-  end
-
   def new
     @about = About.new
     respond_to do |format|
@@ -45,10 +41,6 @@ class AboutsController < ApplicationController
         format.html { render :edit }
       end
     end
-  end
-
-  def show
-    @about = About.find(params[:id])
   end
 
   private

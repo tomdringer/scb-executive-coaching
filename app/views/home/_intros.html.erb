@@ -4,7 +4,7 @@
       <% if intros.blank? %>
         <%= link_to 'Create', new_intro_path %>
       <% else %>
-      <h1 class="text-4xl font-bold mb-5 font-poppins font-light tracking-normal"><%= intros.title %></h1>
+      <h1 class="text-4xl font-bold mb-5 font-poppins font-bold tracking-normal"><%= intros.title %></h1>
       <p class="text-lg mb-5"><%= intros.body %></p>
       <%= image_tag(intros.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
       <%= image_tag(intros.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
