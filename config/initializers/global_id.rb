@@ -1,4 +1,3 @@
-# config/initializers/global_id.rb
 require 'active_support/message_verifier'
 
 Rails.application.config.to_prepare do
@@ -10,5 +9,5 @@ Rails.application.config.to_prepare do
   secret = key_generator.generate_key('signed global id')
   verifier = ActiveSupport::MessageVerifier.new(secret)
 
-  GlobalID::Locator.verifier = verifier
+  GlobalID::SignedGlobalID.verifier = verifier
 end
