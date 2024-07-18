@@ -3,7 +3,13 @@ class About < ApplicationRecord
   has_one_attached :photo_one
   has_one_attached :photo_two
 
-  about = Intro.last
-  about.to_global_id.to_s
-  about.to_signed_global_id.to_s
+  #include GlobalID::Identification
+
+  def get_global_id
+=begin
+    about = about.first
+    about.to_global_id.to_s
+    about.to_signed_global_id.to_s
+=end
+  end
 end
