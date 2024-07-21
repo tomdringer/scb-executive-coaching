@@ -3,5 +3,7 @@ class HomeController < ApplicationController
     @intros = Intro.first
     @about = About.last
     @stories = Story.last
+    @reviews = Review.all
+    @services = Service.last
   end
 end

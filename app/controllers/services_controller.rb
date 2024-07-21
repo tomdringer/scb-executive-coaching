@@ -1,70 +1,55 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :set_service, only: [:edit, :update]
 
-  # GET /services or /services.json
-  def index
-    @services = Service.all
-  end
-
-  # GET /services/1 or /services/1.json
-  def show
-  end
-
-  # GET /services/new
   def new
     @service = Service.new
+    respond_to do |format|
+      format.html { render :new, layout: false }
+      format.turbo_stream
+    end
   end
 
-  # GET /services/1/edit
-  def edit
-  end
-
-  # POST /services or /services.json
   def create
     @service = Service.new(service_params)
-
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
-        format.json { render :show, status: :created, location: @service }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { service: @service }) }
+        format.html { redirect_to root_path, notice: 'Services was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { service: @service }) }
+        format.html { render :new }
       end
     end
   end
 
-  # PATCH/PUT /services/1 or /services/1.json
+  def edit
+    respond_to do |format|
+      format.html { render :edit, layout: false }
+      format.turbo_stream
+    end
+  end
+
   def update
-    respond_to do |format|
-      if @service.update(service_params)
-        format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
-        format.json { render :show, status: :ok, location: @service }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
+    if @service.update(service_params)
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { services: @services }) }
+        format.html { redirect_to root_path, notice: 'Services was successfully updated.' }
       end
-    end
-  end
-
-  # DELETE /services/1 or /services/1.json
-  def destroy
-    @service.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to services_url, notice: "Service was successfully destroyed." }
-      format.json { head :no_content }
+    else
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { service: @service }) }
+        format.html { render :edit }
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_service
-      @service = Service.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def service_params
-      params.require(:service).permit(:title, :body)
-    end
+  def set_service
+    @service = Service.find(params[:id])
+  end
+
+  def service_params
+    params.require(:service).permit(:title, :hide_title, :title_colour, :title_size, :body, :body_text_colour, :body_text_size, :link_colour, :background_colour, :photo_one, :photo_two)
+  end
 end

@@ -1,0 +1,17 @@
+{
+  "eablokker.tabsSidebar.config.collapsedFolders" : [
+
+  ],
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "html+erb",
+    "ruby"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/edit.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/controllers\/services_controller.rb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/abouts\/show.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/show.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/controllers\/abouts_controller.rb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_services.html.erb"
+  ]
+}

@@ -1,17 +1,24 @@
-<section id="story">
-  <div class="container mx-auto p-3">
-    <div class="flex flex-col items-center justify-center py-16">
-      <h2 class="text-3xl font-poppins font-light mb-5">Our Story</h2>
-      <p class="mb-5">SCB Executive Coaching was founded by Stuart Boorman (pictured).</p>
+<% if @stories.blank? %>
+  <%= link_to 'Create', new_story_path %>
+<% else %>
+  <section id="about" class="bg-<%= stories.background_colour %> py-16">
+    <div class="container mx-auto p-3">
+      <div class="flex flex-col items-center justify-center py-16">
+        <% unless  stories.hide_title %>
+          <h1 class="text-<%= stories.title_colour %> <%= stories.title_size %> font-bold mb-5 font-poppins font-light tracking-normal"><%= stories.title %></h1>
+        <% end %>
+        <h2 class="text-<%= stories.body_text_colour %> <%= stories.body_text_size %> font-poppins font-bold text-center"><%= stories.body %></h2>
 
-      <p class="mb-5">"I had coaching in the past when I was working as a Diageo Sales Executive. It really helped me to manage my stress
-        levels and to boost my work performance. I became the top-selling salesperson in the South London Team that
-        quarter.</p>
+        <% if stories.photo_one.attached? %>
+          <%= image_tag(stories.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
+        <% end %>
 
-      <p class="mb-5">I decided that I wanted to teach this unique understanding of tackling stress to others, to help executives succeed
-        in a similar way."</p>
+        <% if stories.photo_two.attached? %>
+          <%= image_tag(stories.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
+        <% end %>
+      </div>
 
-      <img class="h-auto w-2/3 rounded-2xl" src="<%= image_path('profile-pic') %>" alt="office lady">
-    </div>
-  </div>
+      <%= link_to 'Edit', edit_story_path(stories.id), data: { turbo_frame: 'stories' } %>
+<% end %>
+</div>
 </section>

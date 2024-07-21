@@ -1,15 +1,24 @@
-<section id="services" class="bg-scb-black text-scb-white">
-  <div class="container mx-auto p-3">
-    <div class="flex flex-col items-center justify-center py-16">
-      <% if services.blank? %>
-        <%= link_to 'Create', new_service_path %>
-      <% else %>
-        <h1 class="text-4xl font-bold mb-5 font-poppins font-light tracking-normal"><%= services.title %></h1>
-        <p class="text-lg mb-5"><%= services.body %></p>
-        <%= image_tag(services.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
-        <%= image_tag(services.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
-        </div>
-        <%= link_to 'Edit', edit_service_path(services.id), data: { turbo_frame: 'services' } %>
-      <% end %>
-  </div>
+<% if @services.blank? %>
+  <%= link_to 'Create Services', new_service_path %>
+<% else %>
+  <section id="services" class="bg-<%= services.background_colour %> py-16">
+    <div class="container mx-auto p-3">
+      <div class="flex flex-col items-center justify-center py-16">
+        <% unless  services.hide_title %>
+          <h1 class="text-<%= services.title_colour %> <%= services.title_size %> font-bold mb-5 font-poppins font-light tracking-normal"><%= services.title %></h1>
+        <% end %>
+        <h2 class="text-<%= services.body_text_colour %> <%= services.body_text_size %> font-poppins font-bold text-center"><%= services.body %></h2>
+
+        <% if services.photo_one.attached? %>
+          <%= image_tag(services.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
+        <% end %>
+
+        <% if services.photo_two.attached? %>
+          <%= image_tag(services.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
+        <% end %>
+      </div>
+
+      <%= link_to 'Edit', edit_service_path(services.id), data: { turbo_frame: 'services' } %>
+<% end %>
+</div>
 </section>
