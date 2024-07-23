@@ -1,10 +1,16 @@
-<section id="intro" class="bg-scb-gray py-16">
+<% button_bg_class = button_class_for_background(intros.background_colour) %>
+<% button_text_class = button_class_for_text(button_bg_class) %>
+
+<% if @intros.blank? %>
+  <%= link_to 'Create', new_intro_path, class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
+<% else %>
+
+<section id="intro" class="bg-<%= intros.background_colour %> py-16">
   <div class="container mx-auto p-3">
     <div class="flex flex-col items-center justify-center py-16">
-      <% if intros.blank? %>
-        <%= link_to 'Create', new_intro_path %>
-      <% else %>
+      <% unless intros.hide_title %>
       <h1 class="text-4xl font-bold mb-5 font-poppins font-bold tracking-normal"><%= intros.title %></h1>
+      <% end %>
       <p class="text-lg mb-5"><%= intros.body %></p>
         <% if intros.photo_one.present? %>
           <%= image_tag(intros.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
@@ -13,7 +19,10 @@
           <%= image_tag(intros.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
         <% end %>
     </div>
-    <%= link_to 'Edit', edit_intro_path(intros.id), data: { turbo_frame: 'intros' } %>
+    <%= link_to 'Edit', 
+    edit_about_path(intros.id), 
+    class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
+    data: { turbo_frame: 'intros' } %>
         <% end %>
   </div>
 </section>

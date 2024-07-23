@@ -1,0 +1,8 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "rm .\/.overmind.sock\novermind start -f Procfile.dev"
+    }
+  }
+}

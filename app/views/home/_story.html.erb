@@ -1,5 +1,8 @@
+<% button_bg_class = button_class_for_background(stories.background_colour) %>
+<% button_text_class = button_class_for_text(button_bg_class) %>
+
 <% if @stories.blank? %>
-  <%= link_to 'Create', new_story_path %>
+  <%= link_to 'Create', new_story_path, class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
 <% else %>
   <section id="about" class="bg-<%= stories.background_colour %> py-16">
     <div class="container mx-auto p-3">
@@ -18,7 +21,10 @@
         <% end %>
       </div>
 
-      <%= link_to 'Edit', edit_story_path(stories.id), data: { turbo_frame: 'stories' } %>
+     <%= link_to 'Edit', 
+     edit_about_path(stories.id), 
+     class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
+     data: { turbo_frame: 'stories' } %>
 <% end %>
 </div>
 </section>

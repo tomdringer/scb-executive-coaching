@@ -1,3 +1,6 @@
+<% button_bg_class = button_class_for_background(services.background_colour) %>
+<% button_text_class = button_class_for_text(button_bg_class) %>
+
 <% if @services.blank? %>
   <%= link_to 'Create Services', new_service_path %>
 <% else %>
@@ -18,7 +21,10 @@
         <% end %>
       </div>
 
-      <%= link_to 'Edit', edit_service_path(services.id), data: { turbo_frame: 'services' } %>
+     <%= link_to 'Edit', 
+     edit_about_path(services.id), 
+     class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
+     data: { turbo_frame: 'services' } %>
 <% end %>
 </div>
 </section>

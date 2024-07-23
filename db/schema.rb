@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_21_104826) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_184404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_104826) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title_colour"
+    t.string "title_size"
+    t.string "body_text_colour"
+    t.string "body_text_size"
+    t.string "link_colour"
+    t.boolean "hide_title"
+    t.string "background_colour"
   end
 
   create_table "reviews", force: :cascade do |t|

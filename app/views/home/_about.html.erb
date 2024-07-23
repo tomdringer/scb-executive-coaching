@@ -1,6 +1,10 @@
+<% button_bg_class = button_class_for_background(about.background_colour) %>
+<% button_text_class = button_class_for_text(button_bg_class) %>
+
 <% if @about.blank? %>
-  <%= link_to 'Create', new_about_path %>
+  <%= link_to 'Create', new_about_path, class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
 <% else %>
+
  <section id="about" class="bg-<%= about.background_colour %> py-16">
     <div class="container mx-auto p-3">
       <div class="flex flex-col items-center justify-center py-16">
@@ -18,7 +22,11 @@
         <% end %>
       </div>
 
-      <%= link_to 'Edit', edit_about_path(about.id), data: { turbo_frame: 'abouts' } %>
+      <%= link_to 'Edit', 
+      edit_about_path(about.id), 
+      class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
+      data: { turbo_frame: 'abouts' } %>
+      
 <% end %>
 </div>
 </section>
