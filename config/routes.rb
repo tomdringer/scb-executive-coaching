@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :stories
-  resources :services
-  resources :abouts
-  resources :intros
+  resources :reviews, only: [:new, :create, :edit, :update]
+  resources :stories, only: [:new, :create, :edit, :update]
+  resources :services, only: [:new, :create, :edit, :update]
+  resources :abouts, only: [:new, :create, :edit, :update]
+  resources :intros, only: [:new, :create, :edit, :update]
   resources :contacts
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,12 +11,6 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-
-  resources :intros, only: [:new, :create, :show, :edit, :update]
-  resources :abouts, only: [:new, :create, :show, :edit, :update]
-  resources :reviews, only: [:new, :create, :show, :edit, :update]
-  resources :stories, only: [:new, :create, :show, :edit, :update]
-  resources :services, only: [:new, :create, :show, :edit, :update]
 
   # Defines the root path route ("/")
   # root "posts#index"

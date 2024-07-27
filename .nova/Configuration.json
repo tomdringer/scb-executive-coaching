@@ -5,19 +5,20 @@
   "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
     "html+erb",
     "ruby",
-    "javascript"
+    "plaintext",
+    "css"
   ],
   "eablokker.tabsSidebar.config.customTabOrder" : [
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/edit.html.erb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_about.html.erb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/abouts\/show.html.erb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/controllers\/abouts_controller.rb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/helpers\/application_helper.rb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_intros.html.erb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/db\/migrate\/20240723184404_add_fields_to_intros.rb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/config\/tailwind.config.js",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_services.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/assets\/stylesheets\/actiontext.css",
     "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_story.html.erb",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/Gemfile",
-    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/models\/contact.rb"
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_reviews.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/_contact.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/_form.html.erb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/controllers\/services_controller.rb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/controllers\/stories_controller.rb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/config\/routes.rb",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/index.json.jbuilder",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/services\/show.json.jbuilder"
   ]
 }

@@ -37,7 +37,7 @@ class ServicesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { service: @service }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { services: @services }) }
         format.html { render :edit }
       end
     end

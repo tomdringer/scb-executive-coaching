@@ -31,3 +31,11 @@
   max-width: 100% !important;
   z-index: 10;
 }
+
+.trix-content figcaption {
+  display: none;
+}
+
+section img{
+  border-radius: 1rem;
+}

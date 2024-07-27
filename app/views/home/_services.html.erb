@@ -4,11 +4,12 @@
 <% if @services.blank? %>
   <%= link_to 'Create Services', new_service_path %>
 <% else %>
+
   <section id="services" class="bg-<%= services.background_colour %> py-16">
     <div class="container mx-auto p-3">
       <div class="flex flex-col items-center justify-center py-16">
-        <% unless  services.hide_title %>
-          <h1 class="text-<%= services.title_colour %> <%= services.title_size %> font-bold mb-5 font-poppins font-light tracking-normal"><%= services.title %></h1>
+        <% unless services.hide_title %>
+          <h1 class="text-<%= services.title_colour %> <%= services.title_size %> font-bold mb-5 font-poppins font-bold tracking-normal"><%= services.title %></h1>
         <% end %>
         <h2 class="text-<%= services.body_text_colour %> <%= services.body_text_size %> font-poppins font-bold text-center"><%= services.body %></h2>
 
@@ -22,7 +23,7 @@
       </div>
 
      <%= link_to 'Edit', 
-     edit_about_path(services.id), 
+     edit_service_path(services.id), 
      class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
      data: { turbo_frame: 'services' } %>
 <% end %>

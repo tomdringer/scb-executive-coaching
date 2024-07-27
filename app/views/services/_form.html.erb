@@ -1,6 +1,7 @@
 <div class="w-full p-5  flex justify-center items-center">
   <%= turbo_frame_tag "services" do %>
     <%= form_with(model: service, local: true, class: "w-full") do |form| %>
+      
       <% if service.errors.any? %>
         <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
           <h2><%= pluralize(service.errors.count, "error") %> prohibited this services from being saved:</h2>

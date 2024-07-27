@@ -6,9 +6,9 @@
 <% else %>
   <section id="about" class="bg-<%= stories.background_colour %> py-16">
     <div class="container mx-auto p-3">
-      <div class="flex flex-col items-center justify-center py-16">
+      <div class="flex flex-col items-center justify-center py-16 ">
         <% unless  stories.hide_title %>
-          <h1 class="text-<%= stories.title_colour %> <%= stories.title_size %> font-bold mb-5 font-poppins font-light tracking-normal"><%= stories.title %></h1>
+          <h1 class="text-<%= stories.title_colour %> <%= stories.title_size %> font-bold mb-5 font-poppins tracking-normal"><%= stories.title %></h1>
         <% end %>
         <h2 class="text-<%= stories.body_text_colour %> <%= stories.body_text_size %> font-poppins font-bold text-center"><%= stories.body %></h2>
 
@@ -22,7 +22,7 @@
       </div>
 
      <%= link_to 'Edit', 
-     edit_about_path(stories.id), 
+     edit_story_path(stories.id), 
      class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
      data: { turbo_frame: 'stories' } %>
 <% end %>
