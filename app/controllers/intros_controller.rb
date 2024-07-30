@@ -31,6 +31,7 @@ class IntrosController < ApplicationController
 
   def update
     if @intro.update(intro_params)
+      @intro = Intro.first # Ensure @intro is the first record
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace('intros', partial: 'home/intros', locals: { intros: @intro }) }
         format.html { redirect_to root_path, notice: 'Intro was successfully updated.' }
@@ -46,10 +47,10 @@ class IntrosController < ApplicationController
   private
 
   def set_intro
-    @intro = Intro.find(params[:id])
+    @intro = Intro.first
   end
 
   def intro_params
-    params.require(:intro).permit(:title, :hide_title, :title_colour, :title_size, :body, :body_text_colour, :body_text_size, :link_colour, :background_colour, :photo_one, :photo_two)
+    params.require(:intro).permit(:title, :body, :background_colour, :photo)
   end
 end

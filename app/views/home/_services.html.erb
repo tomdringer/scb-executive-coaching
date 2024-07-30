@@ -1,31 +1,28 @@
-<% button_bg_class = button_class_for_background(services.background_colour) %>
-<% button_text_class = button_class_for_text(button_bg_class) %>
-
-<% if @services.blank? %>
-  <%= link_to 'Create Services', new_service_path %>
+<% if service.nil? %>
+  <%= link_to 'Create Service', new_service_path %>
 <% else %>
 
-  <section id="services" class="bg-<%= services.background_colour %> py-16">
+  <% button_bg_class = button_class_for_background(service.background_colour) %>
+  <% button_text_class = button_class_for_text(button_bg_class) %>
+
+  <section id="services" class="bg-<%= service.background_colour %> py-16">
     <div class="container mx-auto p-3">
       <div class="flex flex-col items-center justify-center py-16">
-        <% unless services.hide_title %>
-          <h1 class="text-<%= services.title_colour %> <%= services.title_size %> font-bold mb-5 font-poppins font-bold tracking-normal"><%= services.title %></h1>
+        <% unless service.hide_title %>
+          <h1 class="text-<%= service.title_colour %> <%= service.title_size %> font-bold mb-5 font-poppins font-bold tracking-normal"><%= service.title %></h1>
         <% end %>
-        <h2 class="text-<%= services.body_text_colour %> <%= services.body_text_size %> font-poppins font-bold text-center"><%= services.body %></h2>
+        <h2 class="text-<%= service.body_text_colour %> <%= service.body_text_size %> font-poppins font-bold text-center"><%= service.body %></h2>
 
-        <% if services.photo_one.attached? %>
-          <%= image_tag(services.photo_one, :class => "h-2/3 w-2/3 rounded-2xl mb-5", :alt => "office") %>
+        <% if service.photo_one.attached? %>
+          <%= image_tag(service.photo_one, class: "h-2/3 w-2/3 rounded-2xl mb-5", alt: "office") %>
         <% end %>
 
-        <% if services.photo_two.attached? %>
-          <%= image_tag(services.photo_two, :class => "h-1/2 w-1/2 rounded-2xl", :alt => "office lady") %>
+        <% if service.photo_two.attached? %>
+          <%= image_tag(service.photo_two, class: "h-1/2 w-1/2 rounded-2xl", alt: "office lady") %>
         <% end %>
       </div>
 
-     <%= link_to 'Edit', 
-     edit_service_path(services.id), 
-     class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
-     data: { turbo_frame: 'services' } %>
+      <%= link_to 'Edit', edit_service_path(service), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", data: { turbo_frame: 'services' } %>
+    </div>
+  </section>
 <% end %>
-</div>
-</section>

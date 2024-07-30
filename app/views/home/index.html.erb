@@ -1,6 +1,6 @@
 <div>
-  <%=  turbo_frame_tag "intros" do %>
-    <%=render partial: 'home/intros', locals: { intros: @intros } %>
+  <%= turbo_frame_tag "intros" do %>
+    <%= render partial: 'home/intros', locals: { intros: @intros } %>
   <% end %>
 
   <%=  turbo_frame_tag "abouts" do %>
@@ -8,16 +8,16 @@
   <% end %>
 
   <%=  turbo_frame_tag "services" do %>
-    <%= render partial: 'home/services',  locals: { services: @services} %>
+    <%= render partial: 'home/services',  locals: { service: @service} %>
   <% end %>
 
   <%= turbo_frame_tag "stories" do %>
     <%= render partial: 'home/story',  locals: { stories: @stories}%>
   <% end %>
 
-  <%= turbo_frame_tag "reviews" do %>
-    <%= render partial: 'home/reviews',  locals: { reviews: @reviews} %>
-  <% end %>
+<!--  <%#= turbo_frame_tag "reviews" do %>
+    <%#= render partial: 'home/reviews',  locals: { reviews: @reviews} %>
+  <%# end %>-->
 
   <%= render partial: 'home/contact' %>
 </div>

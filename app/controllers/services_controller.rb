@@ -13,10 +13,10 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     respond_to do |format|
       if @service.save
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { service: @service }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { services: @services }) }
         format.html { redirect_to root_path, notice: 'Services was successfully created.' }
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { service: @service }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { services: @services }) }
         format.html { render :new }
       end
     end
@@ -31,13 +31,14 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
+      @service = Service.last # Ensure @service is the last record
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { services: @services }) }
-        format.html { redirect_to root_path, notice: 'Services was successfully updated.' }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'home/services', locals: { service: @service }) }
+        format.html { redirect_to root_path, notice: 'Service was successfully updated.' }
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { services: @services }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('services', partial: 'services/form', locals: { service: @service }) }
         format.html { render :edit }
       end
     end
@@ -46,7 +47,7 @@ class ServicesController < ApplicationController
   private
 
   def set_service
-    @service = Service.find(params[:id])
+    @service = Service.last
   end
 
   def service_params

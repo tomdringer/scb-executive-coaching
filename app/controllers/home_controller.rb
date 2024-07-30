@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     @about = About.last
     @stories = Story.last
     @reviews = Review.all
-    @services = Service.last
+    @service = Service.last
   end
 end

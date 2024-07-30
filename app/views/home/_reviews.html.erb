@@ -1,7 +1,16 @@
-<section id="reviews" class="bg-scb-blue relative">
+<% button_bg_class = button_class_for_background(reviews.background_colour) %>
+<% button_text_class = button_class_for_text(button_bg_class) %>
+
+<% if @reviews.blank? %>
+  <%= link_to 'Create Review', new_review_path %>
+<% else %>
+
+<section id="reviews" class="bg-<%= reviews.background_colour %>">
   <div class="container mx-auto p-3">
     <div class="flex flex-col items-center justify-center py-16 text-scb-white">
-      <h2 class="text-4xl font-poppins font-bold mb-5">Customer Reviews</h2>
+      <% unless reviews.hide_title %>
+        <h2 class="text-<%= reviews.title_colour %> <%= reviews.title_size %> font-bold mb-5 font-poppins font-bold tracking-normal">Customer Reviews</h2>
+      <% end %>
 
 
       <div data-controller="carousel" style="height:260px; width: 100%; overflow:hidden" class="container w-25 my-5 flex justify-between align-center">
@@ -11,34 +20,19 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>
         </button>
-
-        <div class="slide absolute w-2/3  inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
-          <div class="h-64 grid place-items-center">
-            <p class="mb-5 mx-auto text-center">"Thank you for your inspiring, relieving, insightful and energizing sessions! You opened up
-              valuable new perspectives on my current situation. It is amazing, but just in a few 30 min sessions, I was
-              able to view my situation from a completely new angle, and suddenly see the road to my ultimate
-              dream."</p>
-            <p class="mb-5">Executive at Credit Suisse</p>
+        
+        <%= @reviews.each do |review| %>
+          <div class="slide absolute w-2/3  inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
+            <div class="h-64 grid place-items-center">
+              <p class="mb-5 mx-auto text-center">"<%= reviews.body %>"</p>
+              <p class="mb-5"><%= reviews.author %></p>
+            </div>
+            <%= link_to 'Edit', 
+             edit_review_path(reviews.id), 
+             class: "#{button_bg_class} #{button_text_class} rounded-lg p-3", 
+             data: { turbo_frame: 'reviews' } %>
           </div>
-        </div>
-
-        <div class="slide absolute w-2/3 inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
-          <div class="h-64 grid place-items-center">
-            <p class="mb-5 mx-auto">"Stuart is a very personable and empathetic coach, he gives you the space needed for
-              thinking and self reflection. He also provides you with thought provoking questions and valuable insights
-              that enable you to continue to move forwards. I have thoroughly enjoyed working with Stuart."</p>
-            <p class="mb-5">Maria Pata, Business Owner</p>
-          </div>
-        </div>
-
-        <div class="slide absolute w-2/3  inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
-          <div class="h-64 grid place-items-center">
-            <p class="mb-5 mx-auto">"It was an absolute pleasure having Stuart as my coach. Over six 90-minute sessions, we made
-              life changing progress on overcoming lifelong habits, and moving forward with a new kind of thinking and
-              outlook. I’d recommend Stuart to anyone looking to make that extra step forward in life."</p>
-            <p>Corporate Client</p>
-          </div>
-        </div>
+        <% end %>
 
         <button data-action="click->carousel#nextSlide">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -49,5 +43,6 @@
     </div>
 
   </div>
+  <% end %>
   </div>
 </section>

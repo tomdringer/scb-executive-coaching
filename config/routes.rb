@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   resources :reviews, only: [:new, :create, :edit, :update]
   resources :stories, only: [:new, :create, :edit, :update]
   resources :services, only: [:new, :create, :edit, :update]
