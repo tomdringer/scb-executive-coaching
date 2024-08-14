@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_28_111359) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_13_200634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -112,6 +112,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_28_111359) do
     t.string "background_colour"
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "title_colour"
+    t.string "title_size"
+    t.string "body_text_colour"
+    t.string "body_text_size"
+    t.string "link_colour"
+    t.boolean "hide_title"
+    t.string "background_colour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "name"
+    t.integer "order"
+    t.boolean "hide_menu"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -138,6 +154,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_28_111359) do
     t.string "link_colour"
     t.boolean "hide_title"
     t.string "background_colour"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

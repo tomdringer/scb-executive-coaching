@@ -1,18 +1,9 @@
+<% content_for :meta_title, "Executive Life Coaching" %>
+<% content_for :meta_description, "Pricing for SCB Executive Coaching" %>
+
 <div>
-  <%= turbo_frame_tag "intros" do %>
-    <%= render partial: 'home/intros', locals: { intros: @intros } %>
-  <% end %>
-
-  <%=  turbo_frame_tag "abouts" do %>
-    <%= render partial: 'home/about', locals: { about: @about} %>
-  <% end %>
-
-  <%=  turbo_frame_tag "services" do %>
-    <%= render partial: 'home/services',  locals: { service: @service} %>
-  <% end %>
-
-  <%= turbo_frame_tag "stories" do %>
-    <%= render partial: 'home/story',  locals: { stories: @stories}%>
+  <%= turbo_frame_tag "sections" do %>
+    <%= render partial: 'home/sections', locals: { sections: @sections } %>
   <% end %>
 
 <!--  <%#= turbo_frame_tag "reviews" do %>

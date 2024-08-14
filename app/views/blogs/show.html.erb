@@ -1,10 +1,18 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<% content_for :meta_title, "#{@blog.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @blog.body.description %>
+<#% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+
+
+<div class="mx-auto md:w-2/3 w-full flex bg-scb-white text-left">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @blog %>
+    <div class="w-full mt-6">
+      <h1 class="text-4xl"><%= @blog.title %></h1>
+      <p><%= @blog.body %></p>
+    </div>
 
     <%= link_to "Edit this blog", edit_blog_path(@blog), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Back to blogs", blogs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

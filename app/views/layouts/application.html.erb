@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SCB Executive Coaching</title>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+
+
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     
     <%= favicon_link_tag asset_path('favicon.png') %>
@@ -32,15 +51,18 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <a href="#intro" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Home</a>
-          <a href="#about" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">About</a>
-          <a href="#services" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Services</a>
-          <a href="#story" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Story</a>
-          <a href="#reviews" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Reviews</a>
-          <a href="#contact" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white">Contact</a>
+          <%= link_to  "Blog", blogs_path, class: "text-sm font-semibold leading-6 text-scb-white" %>
+          <% if @sections.present? %>
+            <% @sections.each do |section| %>
+              <% unless section.hide_menu %>
+                <a href="<%root_path %>/#<%= section.name.downcase %>" data-controller="scroll-to" data-action="click->scroll-to#go" class="text-sm font-semibold leading-6 text-scb-white"><%= section.name %></a>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-scb-white">Log in <span aria-hidden="true">&rarr;</span></a>
+          <a href="/users/sign_in" class="text-sm font-semibold leading-6 text-scb-white mr-5">Log in</a>
+          <a href="/users/sign_up" class="ext-sm font-semibold leading-6 text-scb-white">Sign up</a>
         </div>
       </nav>
       <!-- Mobile menu, show hide div -->
@@ -63,15 +85,15 @@
           <div class="mt-6 flow-root" data-menu-target="nav">
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
-                <a href="#intro" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Home</a>
-                <a href="#about" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">About</a>
-                <a href="#services" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Services</a>
-                <a href="#story" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Story</a>
-                <a href="#reviews" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Reviews</a>
-                <a href="#contact" data-controller="scroll-to"  data-action=" click->menu#updateNav" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Contact</a>
+                <%= link_to  "Blog", blogs_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
+                <% if @sections.present? %>
+                  <% @sections.each do |section| %>
+                    <a href="<%= root_path %>/#<%= section.name.downcase %>" data-controller="scroll-to" data-action="click->scroll-to#go" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
+                  <% end %>
+                <% end %>
               </div>
               <div class="py-6">
-                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-50">Log in</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">Log in</a>
               </div>
             </div>
           </div>

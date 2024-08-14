@@ -1,0 +1,5 @@
+meta_site_name: "SCB Executive Coaching"
+meta_title: "Product name - Product tagline"
+meta_description: "Relevant description"
+meta_image: "profile-pic.webp" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards

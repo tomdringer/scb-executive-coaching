@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  resources :blogs
+  devise_for :users
+  resources :sections
+  resources :blogs,  path: :blog
   resources :reviews, only: [:new, :create, :edit, :update]
-  resources :stories, only: [:new, :create, :edit, :update]
-  resources :services, only: [:new, :create, :edit, :update]
-  resources :abouts, only: [:new, :create, :edit, :update]
-  resources :intros, only: [:new, :create, :edit, :update]
   resources :contacts
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

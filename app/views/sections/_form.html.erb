@@ -1,0 +1,113 @@
+<div class="w-full p-5  flex justify-center items-center">
+  <%= turbo_frame_tag "sections" do %>
+    <%= form_with(model: section, local: true, class: "w-full") do |form| %>
+      <% if section.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+          <h2><%= pluralize(sections.errors.count, "error") %> prohibited this intro from being saved:</h2>
+
+          <ul>
+            <% sections.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="my-5 w-full">
+        <%= form.label :order %>
+        <%= form.number_field :order, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :title_size %>
+        <%= form.select :title_size,
+                        font_size, {}, {
+                          id: "title_size",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :title_colour %>
+        <%= form.select :title_colour,
+                        colours, {}, {
+                          id: "title_colour",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :hide_title %>
+        <%= form.check_box :hide_title %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :hide_menu %>
+        <%= form.check_box :hide_menu %>
+        <p class="text-sm">Hide section from navigation menu</p>
+      </div>
+
+
+      <div class="my-5 w-full">
+        <%= form.label :body %>
+        <%= form.rich_text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :body_text_size %>
+        <%= form.select :body_text_size,
+                        font_size, {}, {
+                          id: "body_size",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :body_text_colour %>
+        <%= form.select :body_text_colour,
+                        colours, {}, {
+                          id: "body_text_colour",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :background_colour %>
+        <%= form.select :background_colour,
+                        colours, {}, {
+                          id: "background_colour",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="my-5 w-full">
+        <%= form.label :link_colour %>
+        <%= form.select :link_colour,
+                        colours, {}, {
+                          id: "link_colour",
+                          class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 bg-scb-white"
+                        }
+        %>
+      </div>
+
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
