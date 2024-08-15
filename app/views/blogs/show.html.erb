@@ -1,23 +1,23 @@
-<% content_for :meta_title, "#{@blog.title} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @blog.body.description %>
-<#% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+<% content_for :meta_title, "#{@blog.title}" %>
+<% content_for :meta_description, @blog.description %>
+<% content_for :meta_image, "#{url_for(@blog.preview)}" %>
 
 
-<div class="mx-auto md:w-2/3 w-full flex bg-scb-white text-left">
+<div class="mx-auto md:w-2/3 w-full flex bg-scb-white text-left bg-scb-white">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
     <div class="w-full mt-6">
-      <h1 class="text-4xl"><%= @blog.title %></h1>
-      <p><%= @blog.body %></p>
+      <h1 class="text-4xl mb-3"><%= @blog.title %></h1>
+      <h2><%= @blog.body %></h2>
     </div>
 
     <%= link_to "Edit this blog", edit_blog_path(@blog), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Back to blogs", blogs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this blog", @blog, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Destroy this blog", @blog, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium bg-red-700 text-scb-white" %>
     </div>
   </div>
 </div>

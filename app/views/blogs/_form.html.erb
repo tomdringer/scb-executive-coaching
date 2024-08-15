@@ -17,8 +17,20 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :preview %>
+    <%= form.file_field :preview, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <p class="text-sm">This is a preview image. This will be used  on Blog landing page.</p>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <p class="text-sm">Add a brief description iof the article. This will be used for SEO and on Blog landing page.</p>
+  </div>
+
+  <div class="my-5">
     <%= form.label :body %>
-    <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.rich_text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
