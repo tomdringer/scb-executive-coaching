@@ -6,63 +6,67 @@ class SectionsController < ApplicationController
   end
   # GET /sections or /sections.json
   def new
-    @section = Section.new
-    respond_to do |format|
-      format.html { render :new, layout: false }
-      format.turbo_stream
-    end
+    @sections = Section.new
   end
 
-  # GET /sections/1 or /sections/1.json
-  def show
-  end
-
-  # GET /sections/1/edit
   def edit
+    render turbo_stream: turbo_stream.replace(
+      "section_#{@section.id}",
+      partial: "sections/form",
+      locals: { section: @section }
+    )
+  end
+
+  def show
     respond_to do |format|
-      format.html { render :edit, layout: false }
-      format.turbo_stream
+      format.html {}
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "section_#{@section.id}",
+          partial: "sections/section",
+          locals: { section: @section }
+        )
+      end
     end
   end
 
-  # POST /sections or /sections.json
   def create
     @section = Section.new(section_params)
-    respond_to do |format|
-      if @section.save
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('sections', partial: 'home/sections', locals: { sections: Section.order(:order) }) }
-        format.html { redirect_to root_path, notice: 'Section was successfully created.' }
-      else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('sections', partial: 'sections/form', locals: { section: @section }) }
-        format.html { render :new }
-      end
+
+    if @section.save
+      redirect_to @section, notice: "Section was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /sections/1 or /sections/1.json
   def update
     if @section.update(section_params)
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('sections', partial: 'home/sections', locals: { sections: Section.order(:order) }) }
-        format.html { redirect_to root_path, notice: 'Section was successfully updated.' }
-      end
+      render turbo_stream: [
+        turbo_stream.replace(
+          "section_#{@section.id}",
+          partial: "sections/section",
+          locals: { section: @section }
+        ),
+        turbo_stream.replace(
+          "sections_list",
+          partial: "home/sections",
+          locals: { sections: Section.order(:order) }
+        )
+      ]
     else
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace('sections', partial: 'sections/form', locals: { section: @section }) }
-        format.html { render :edit }
-      end
+      render turbo_stream: turbo_stream.replace(
+        "section_#{@section.id}",
+        partial: "sections/form",
+        locals: { section: @section }
+      )
     end
   end
 
   # DELETE /sections/1 or /sections/1.json
   def destroy
-    @section = Section.find(params[:id])
     @section.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sections_path, notice: 'Section was successfully deleted.' }
-      format.turbo_stream
-    end
+    redirect_to section_url, notice: "Section was successfully destroyed."
   end
 
   private
@@ -73,6 +77,6 @@ class SectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def section_params
-      params.require(:section).permit(:order, :name, :title, :hide_title, :title_colour, :title_size, :body, :body_text_colour, :body_text_size, :link_colour, :background_colour)
+      params.require(:section).permit(:order, :name, :title, :hide_title, :title_colour, :title_size, :body, :body_text_colour, :body_text_size, :link_colour, :background_colour, :hide_menu)
     end
 end

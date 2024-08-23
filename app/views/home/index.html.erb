@@ -2,9 +2,9 @@
 <% content_for :meta_description, "Pricing for SCB Executive Coaching" %>
 
 <div>
-  <%= turbo_frame_tag "sections" do %>
-    <%= render partial: 'home/sections', locals: { sections: @sections } %>
-  <% end %>
+	<div id="sections_list">
+    	<%= render partial: 'home/sections', locals: { sections: @sections } %>
+	</div>
 
 <!--  <%#= turbo_frame_tag "reviews" do %>
     <%#= render partial: 'home/reviews',  locals: { reviews: @reviews} %>
