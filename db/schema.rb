@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_175720) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_23_191003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -127,6 +127,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_175720) do
     t.string "name"
     t.integer "order"
     t.boolean "hide_menu"
+    t.text "alignment"
   end
 
   create_table "services", force: :cascade do |t|
