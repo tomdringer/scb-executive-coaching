@@ -12,7 +12,7 @@
         <% unless section.hide_title %>
           <h1 class="text-<%= section.title_colour %> <%= section.title_size %> font-bold mb-5 font-poppins font-bold tracking-normal"><%= section.title %></h1>
         <% end %>
-        <h2 class="text-<%= section.body_text_colour %> <%= section.body_text_size %> text-<%= section.link_colour %> font-poppins text-center"><%= section.body %></h2>
+        <h2 class="text-<%= section.body_text_colour %> <%= section.body_text_size %> text-<%= section.link_colour %> <%= section.alignment %> font-poppins"><%= section.body %></h2>
       </div>
 
       <div class="flex gap-3">
