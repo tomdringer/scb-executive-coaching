@@ -7,6 +7,7 @@ import "@rails/actiontext"
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
+import TrixController from "./controllers/trix_controller";
 
 
 window.Stimulus = Application.start()
@@ -14,6 +15,7 @@ window.Stimulus = Application.start()
 Stimulus.register("carousel", CarouselController)
 Stimulus.register("menu", MenuController);
 Stimulus.register("dialog", Dialog);
+Stimulus.register("trix", TrixController);
 
 Stimulus.debug = process.env.NODE_ENV === "development"
 

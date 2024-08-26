@@ -61,9 +61,9 @@
         <p class="text-sm">Hide section from navigation menu</p>
       </div>
 
-      <div class="my-5 w-full">
+      <div class="my-5 w-full control" data-controller="trix">
         <%= form.label :body %>
-        <%= form.rich_text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.rich_text_area :body, rows: 4, data: { trix_target: 'editor' }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="my-5 w-full">

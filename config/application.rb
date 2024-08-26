@@ -23,5 +23,17 @@ module ScbExecutiveCoaching
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Rails.application.config.after_initialize do
+      # ActionText::ContentHelper.allowed_attributes.add 'style'
+      # ActionText::ContentHelper.allowed_attributes.add 'controls'
+      # ActionText::ContentHelper.allowed_attributes.add 'poster'
+      #
+      # ActionText::ContentHelper.allowed_tags.add 'video'
+      # ActionText::ContentHelper.allowed_tags.add 'source'
+      # ActionText::ContentHelper.allowed_tags.add 'centered-div'
+
+      ActionText::ContentHelper.allowed_attributes = Loofah::HTML5::SafeList::ACCEPTABLE_ATTRIBUTES.add('controls')
+      ActionText::ContentHelper.allowed_tags = Loofah::HTML5::SafeList::ACCEPTABLE_ELEMENTS.merge(['source', 'centered-div'])
+    end
   end
 end
