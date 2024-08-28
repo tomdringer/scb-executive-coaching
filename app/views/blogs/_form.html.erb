@@ -19,13 +19,13 @@
   <div class="my-5">
     <%= form.label :preview %>
     <%= form.file_field :preview, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    <p class="text-sm">This is a preview image. This will be used  on Blog landing page.</p>
+    <p class="text-sm">This is a preview image. This will be used on Blog landing page.</p>
   </div>
 
   <div class="my-5">
     <%= form.label :description %>
     <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    <p class="text-sm">Add a brief description iof the article. This will be used for SEO and on Blog landing page.</p>
+    <p class="text-sm">Add a brief description of the article. This will be used for SEO and on Blog landing page.</p>
   </div>
 
   <div class="my-5">
@@ -33,12 +33,34 @@
     <%= form.rich_text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
+  <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category", class:"mb-5" %>
   </div>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+
+  <div data-controller="category-modal">
+    <div  class="hidden fixed z-10 inset-0 overflow-y-auto" id="add-category-modal">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-6 rounded shadow-lg border border-gray-400">
+          <h2 class="text-xl mb-4">Add Category</h2>
+          <%= form_with(url: categories_path, method: :post, local: true, data: { action: "submit->category-modal#create" }) do |form| %>
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name, class: "mb-5" %>
+            </div>
+            <div class="actions">
+              <%= form.submit "Create", class: "bg-blue-500 text-white px-3 py-1 rounded" %>
+              <button type="button" data-action="click->category-modal#close" class="ml-2 bg-gray-500 text-white px-3 py-1 rounded">Cancel</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <button type="button" data-action="click->category-modal#open" class="ml-2 bg-blue-500 text-white px-3 py-1 rounded mb-5">Add Category</button>
   </div>
 <% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :blogs,  path: :blog
   resources :reviews, only: [:new, :create, :edit, :update]
   resources :contacts
+  resources :categories, only: [:create]
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

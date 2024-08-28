@@ -14,6 +14,15 @@
         <h2><%= @blog.body %></h2>
       </div>
 
+     <!-- <%# if @blog.category.name.present? %>
+        <div class="w-full mt-6">
+          <h1 class="text-4xl mb-3"><%#= @blog.category %></h1>
+          <p><%#= @blog.category.name %></p>
+        </div>
+      <%# end %>-->
+
+
+
       <%= link_to "Edit this blog", edit_blog_path(@blog), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to "Back to blogs", blogs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <div class="inline-block ml-2">
