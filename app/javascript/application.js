@@ -1,13 +1,11 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import { Application } from "@hotwired/stimulus"
 import "@hotwired/turbo-rails";
-import "trix"
 import "@rails/actiontext"
 
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
-import TrixController from "./controllers/trix_controller";
 import Category_modal_controller from "./controllers/category_modal_controller";
 
 window.Stimulus = Application.start()
@@ -15,7 +13,6 @@ window.Stimulus = Application.start()
 Stimulus.register("carousel", CarouselController)
 Stimulus.register("menu", MenuController);
 Stimulus.register("dialog", Dialog);
-Stimulus.register("trix", TrixController);
 Stimulus.register("category-modal", Category_modal_controller);
 
 
@@ -46,6 +43,6 @@ events.forEach(e => {
     console.log(e);
   });
 });
-import "trix"
+
 import "@rails/actiontext"
 import "@hotwired/turbo-rails"

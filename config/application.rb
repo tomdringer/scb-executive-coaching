@@ -32,8 +32,7 @@ module ScbExecutiveCoaching
       # ActionText::ContentHelper.allowed_tags.add 'source'
       # ActionText::ContentHelper.allowed_tags.add 'centered-div'
 
-      ActionText::ContentHelper.allowed_attributes = Loofah::HTML5::SafeList::ACCEPTABLE_ATTRIBUTES.add('controls')
-      ActionText::ContentHelper.allowed_tags = Loofah::HTML5::SafeList::ACCEPTABLE_ELEMENTS.merge(['source', 'centered-div'])
+
     end
   end
 end

@@ -13,8 +13,5 @@ application.register("hello", HelloController)
 import MenuController from "./menu_controller"
 application.register("menu", MenuController)
 
-import TrixController from "./trix_controller"
-application.register("trix", TrixController)
-
 import CategoryModalController from "./category_modal_controller"
 application.register("category-modal", CategoryModalController)
