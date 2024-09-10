@@ -57,7 +57,7 @@
           <% if @sections.present? %>
             <% @sections.each do |section| %>
               <% unless section.hide_menu %>
-                <a href="#" data-scroll-to="<%= root_path %>/<%= section.name.downcase %>"  class="text-sm font-semibold leading-6 text-scb-white"><%= section.name %></a>
+                <a href="#<%= section.name.downcase %>"  class="text-sm font-semibold leading-6 text-scb-white"><%= section.name %></a>
               <% end %>
             <% end %>
           <% end %>
@@ -90,7 +90,7 @@
                 <%= link_to  "Blog", blogs_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
                 <% if @sections.present? %>
                   <% @sections.each do |section| %>
-                    <a href="#" data-scroll-to="<%= root_path %>/<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
+                    <a href="#<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
                   <% end %>
                 <% end %>
               </div>
