@@ -1,13 +1,19 @@
 class UploaderController < ApplicationController
-  skip_forgery_protection
-
   def image
-    blob = ActiveStorage::Blob.create_and_upload!(
-      io: params[:file],
-      filename: params[:file].original_filename,
-      content_type: params[:file].content_type
+    s3 = Aws::S3::Resource.new(
+      region: 'eu-west-2',
+      credentials: Aws::Credentials.new(
+        Rails.application.credentials.dig(:aws, :access_key_id),
+        Rails.application.credentials.dig(:aws, :secret_access_key)
+      )
     )
 
-    render json: {location: url_for(blob)}, content_type: "text/html"
+    file = params[:file]
+    obj = s3.bucket('scb-coaching-images').object(file.original_filename)
+    obj.upload_file(file.path, acl: 'public-read')
+
+    render json: { url: obj.public_url }
+  rescue Aws::Errors::ServiceError => e
+    render json: { error: e.message }, status: :unprocessable_entity
   end
 end
