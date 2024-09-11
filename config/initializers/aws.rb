@@ -1,3 +1,5 @@
+require 'aws-sdk-s3'
+
 Aws.config.update({
   region: 'eu-west-2',
   credentials: Aws::Credentials.new(
