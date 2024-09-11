@@ -40,6 +40,12 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.3.4, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.3.4, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.6, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.3.0, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.899.0, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.191.4, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.78.0, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.146.0, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.8.0, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.8, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, asdf: 3.3.0) [gem]" level="application" />
@@ -63,6 +69,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.13.1, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.12.0, asdf: 3.3.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jmespath (v1.6.2, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jsbundling-rails (v1.3.0, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, asdf: 3.3.0) [gem]" level="application" />
