@@ -13,10 +13,10 @@
 	<%= @reviews.each do |review| %>
 	  <div class="slide absolute w-2/3  inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
 		<div class="h-64 grid place-items-center">
-		  <p class="mb-5 mx-auto text-center"><%= review.body.html_safe %></p>
+		  <h2 class="mb-5 mx-auto text-center text-<%= review.body_text_colour %> <%= review.body_text_size %> text-<%= review.link_colour %> font-poppins"><%= review.body.html_safe %></h2>
 		  <p class="mb-5"><%= review.author %></p>
 		</div>
-		<%= link_to 'Edit',
+		<%= link_to 'Edit Review',
 					edit_review_path(review.id),
 					class: "bg-scb-white text-scb-black rounded-lg p-3"
 		%>
