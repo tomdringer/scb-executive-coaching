@@ -2,10 +2,7 @@
 import { Application } from "@hotwired/stimulus"
 import "@hotwired/turbo-rails";
 import "@rails/actiontext"
-//import tinymce from 'tinymce/tinymce';
-import 'tinymce/themes/silver';
-import 'tinymce/icons/default';
-import 'tinymce/plugins/image';
+
 
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
@@ -18,6 +15,8 @@ Stimulus.register("carousel", CarouselController)
 Stimulus.register("menu", MenuController);
 Stimulus.register("dialog", Dialog);
 Stimulus.register("category-modal", Category_modal_controller);
+//Stimulus.register("delete", DeleteController);
+
 
 Stimulus.debug = process.env.NODE_ENV === "development"
 
@@ -47,35 +46,5 @@ events.forEach(e => {
   });
 });
 
-document.addEventListener('turbo:load', () => {
-  tinymce.init({
-    selector: 'textarea.tinymce',
-    plugins: 'image',
-    toolbar: 'image',
-    images_upload_url: '/uploader/image',
-    automatic_uploads: true,
-    images_upload_handler: function (blobInfo, success, failure) {
-      let formData = new FormData();
-      formData.append('file', blobInfo.blob(), blobInfo.filename());
-
-      fetch('/uploader/image', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        }
-      })
-        .then(response => response.json())
-        .then(result => {
-          if (result.error) {
-            failure(result.error);
-          } else {
-            success(result.url);
-          }
-        })
-        .catch(error => {
-          failure('Image upload failed: ' + error.message);
-        });
-    }
-  });
-});
+import "@rails/actiontext"
+import "@hotwired/turbo-rails"
