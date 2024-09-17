@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :sections
   resources :blogs,  path: :blog
-  resources :reviews, only: [:new, :create, :edit, :update]
+  resources :reviews
   resources :contacts
   resources :categories, only: [:create]
   root 'home#index'
 
-  post 'uploader/image'
+  post 'uploader/image' => 'uploader#image'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

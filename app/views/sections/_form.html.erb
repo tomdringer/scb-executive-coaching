@@ -1,5 +1,5 @@
 <div class="w-full p-5  flex justify-center items-center">
-    <%= form_with(model: section, local: true, class: "w-full") do |form| %>
+    <%= form_with(model: section, local: true, class: "w-full", multipart: true) do |form| %>
       <% if section.errors.any? %>
         <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
           <h2><%= pluralize(sections.errors.count, "error") %> prohibited this intro from being saved:</h2>

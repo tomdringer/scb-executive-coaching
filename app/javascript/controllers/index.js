@@ -15,3 +15,7 @@ application.register("menu", MenuController)
 
 import CategoryModalController from "./category_modal_controller"
 application.register("category-modal", CategoryModalController)
+
+import DeleteController from "./delete_controller"
+application.register("delete", DeleteController)
+

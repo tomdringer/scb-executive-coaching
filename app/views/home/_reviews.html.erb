@@ -1,33 +1,29 @@
+<!-- app/views/home/_reviews.html.erb -->
 <% if @reviews.blank? %>
   <%= link_to 'Create Review', new_review_path %>
 <% else %>
-
   <div data-controller="carousel" style="height:260px; width: 100%; overflow:hidden" class="container w-25 my-5 flex justify-between align-center">
-
 	<button data-action="click->carousel#previousSlide">
-	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-scb-white">
 		<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 	  </svg>
 	</button>
 
-	<%= @reviews.each do |review| %>
-	  <div class="slide absolute w-2/3  inset-x-0 my-auto mx-auto bg-scb-blue"  data-carousel-target="slide">
+	<% @reviews.each do |review| %>
+	  <div class="slide absolute w-2/3 inset-x-0 my-auto mx-auto bg-scb-blue" data-carousel-target="slide">
 		<div class="h-64 grid place-items-center">
 		  <h2 class="mb-5 mx-auto text-center text-<%= review.body_text_colour %> <%= review.body_text_size %> text-<%= review.link_colour %> font-poppins"><%= review.body.html_safe %></h2>
-		  <p class="mb-5"><%= review.author %></p>
+		  <p class="text-scb-white"><%= review.author %></p>
 		</div>
-		<%= link_to 'Edit Review',
-					edit_review_path(review.id),
-					class: "bg-scb-white text-scb-black rounded-lg p-3"
-		%>
+		<%= link_to 'Edit Review', edit_review_path(review.id), class: "bg-scb-white text-scb-black rounded-lg p-3" %>
+		<%= link_to "Delete Review", review_path(review), "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
 	  </div>
 	<% end %>
 
 	<button data-action="click->carousel#nextSlide">
-	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-scb-white">
 		<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
 	  </svg>
 	</button>
   </div>
-
 <% end %>
