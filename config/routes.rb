@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post 'uploader/image' => 'uploader#image'
+
+  require 'active_storage/engine'
+  ActiveStorage::Engine.routes.draw do
+    get '/rails/active_storage/blobs/redirect/:signed_id/*filename' => 'active_storage/blobs#show', as: :rails_service_blob
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

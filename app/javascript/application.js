@@ -48,3 +48,34 @@ events.forEach(e => {
 
 import "@rails/actiontext"
 import "@hotwired/turbo-rails"
+
+tinymce.init({
+  selector: 'textarea.tinymce',
+  plugins: 'image',
+  toolbar: 'image',
+  images_upload_url: '/uploader/image',
+  automatic_uploads: true,
+  images_upload_handler: function (blobInfo, success, failure) {
+    let formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+    fetch('/uploader/image', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      }
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.error) {
+          failure(result.error);
+        } else {
+          success(result.url);
+        }
+      })
+      .catch(error => {
+        failure('Image upload failed: ' + error.message);
+      });
+  }
+});
