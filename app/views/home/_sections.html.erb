@@ -25,10 +25,8 @@
       <div class="flex gap-3">
         <%= link_to 'Edit Section', edit_section_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
         <%= link_to "Delete Section", section_path(section), "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
+      </div>
 
-        <% if section.reviews %>
-          <%= link_to 'Create Review', new_review_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
-        <% end %>
       </div>
     </div>
   </section>

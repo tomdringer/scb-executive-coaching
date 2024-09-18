@@ -15,6 +15,7 @@
 		  <h2 class="mb-5 mx-auto text-center text-<%= review.body_text_colour %> <%= review.body_text_size %> text-<%= review.link_colour %> font-poppins"><%= review.body.html_safe %></h2>
 		  <p class="text-scb-white"><%= review.author %></p>
 		</div>
+		<%= link_to 'Create Review', new_review_path, class: "bg-scb-gray text-scb-black rounded-lg p-3" %>
 		<%= link_to 'Edit Review', edit_review_path(review.id), class: "bg-scb-white text-scb-black rounded-lg p-3" %>
 		<%= link_to "Delete Review", review_path(review), "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
 	  </div>
