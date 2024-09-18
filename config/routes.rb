@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/rails/active_storage/blobs/redirect/:signed_id/*filename' => 'active_storage/blobs#show', as: :rails_service_blob
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # test for deployment
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
