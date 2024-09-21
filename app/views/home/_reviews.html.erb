@@ -2,7 +2,7 @@
 <% if @reviews.blank? %>
   <%= link_to 'Create Review', new_review_path %>
 <% else %>
-  <div data-controller="carousel" style="height:260px; width: 100%; overflow:hidden" class="container w-25 my-5 flex justify-between align-center">
+  <div data-controller="carousel" style="height:260px; width: 100%; overflow:hidden" class="my-5 flex justify-between align-center">
 	<button data-action="click->carousel#previousSlide">
 	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-scb-white">
 		<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -11,8 +11,8 @@
 
 	<% @reviews.each do |review| %>
 	  <div class="slide absolute w-2/3 inset-x-0 my-auto mx-auto bg-scb-blue" data-carousel-target="slide">
-		<div class="h-64 grid place-items-center">
-		  <h2 class="mb-5 mx-auto text-center text-<%= review.body_text_colour %> <%= review.body_text_size %> text-<%= review.link_colour %> font-poppins"><%= review.body.html_safe %></h2>
+		<div class="h-64 grid place-items-center max-w-7xl text-center mx-auto">
+		  <h2 class="mb-5 mx-auto text-<%= review.body_text_colour %> <%= review.body_text_size %> text-<%= review.link_colour %> font-poppins"><%= review.body.html_safe %></h2>
 		  <p class="text-scb-white"><%= review.author %></p>
 		</div>
 		<%= link_to 'Create Review', new_review_path, class: "bg-scb-gray text-scb-black rounded-lg p-3" %>
