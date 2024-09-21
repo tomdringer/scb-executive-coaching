@@ -51,10 +51,12 @@ import "@hotwired/turbo-rails"
 
 tinymce.init({
   selector: 'textarea.tinymce',
-  plugins: ['image', 'table', 'fullscreen', 'code', 'link', 'lists', 'media', 'advlist', 'autolink', 'charmap', 'directionality', 'nonbreaking', 'visualchars', 'visualblocks', 'wordcount', 'searchreplace'],
-  toolbar: 'image',
+  plugins: ['image', 'table', 'fullscreen', 'code', 'link', 'lists', 'media', 'advlist', 'autolink', 'charmap', 'directionality', 'nonbreaking', 'visualchars', 'visualblocks', 'wordcount', 'searchreplace', 'save'],
+  toolbar: ['image', 'save'],
   images_upload_url: '/uploader/image',
   automatic_uploads: true,
+  license_key: 'gpl',
+  valid_elements: 'table[border|cellspacing|cellpadding|width|height|align|summary|bgcolor|background|bordercolor],tbody,thead,tfoot,tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor],th[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor]',
 
   images_upload_handler: function (blobInfo, success, failure) {
     let formData = new FormData();

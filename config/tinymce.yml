@@ -1,8 +1,9 @@
 menubar: "insert view format table tools"
 toolbar:
-  - bold italic | link | undo redo | forecolor backcolor | bullist numlist outdent indent | table | uploadimage | code
+  - bold italic | link | undo redo | forecolor backcolor | bullist numlist outdent indent | table | image | code | save
 plugins:
   - table
+  - save
   - fullscreen
   - image
   - code
@@ -19,3 +20,6 @@ plugins:
   - autolink
   - lists
 images_upload_url: '/uploader/image'
+automatic_uploads: true,
+license_key: 'gpl'
+valid_elements: 'table[border|cellspacing|cellpadding|width|height|align|summary|bgcolor|background|bordercolor],tbody,thead,tfoot,tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor],th[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor]'
