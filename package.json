@@ -8,6 +8,7 @@
     "@stimulus-components/dialog": "^1.0.1",
     "@stimulus-components/scroll-to": "^5.0.1",
     "esbuild": "^0.21.5",
+    "tinymce": "^7.3.0",
     "trix": "^2.1.2"
   },
   "scripts": {

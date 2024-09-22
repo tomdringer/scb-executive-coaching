@@ -18,7 +18,7 @@
         <% end %>
 
         <% unless section.reviews %>
-          <h2 class="text-<%= section.body_text_colour %> <%= section.body_text_size %> text-<%= section.link_colour %> <%= section.alignment %> font-poppins px-6"><%= section.body %></h2>
+          <h2 class="text-<%= section.body_text_colour %> <%= section.body_text_size %> text-<%= section.link_colour %> <%= section.alignment %> font-poppins px-6"><%= sanitize(section.body, tags: %w(p br strong span em img a ul ol li h1 h2 h3 h4 h5 h6 table tr td th)) %></h2>
         <% end %>
       </div>
 
