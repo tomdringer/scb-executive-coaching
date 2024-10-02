@@ -7,15 +7,17 @@ import { application } from "./application"
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
-import MenuController from "./menu_controller"
-application.register("menu", MenuController)
-
 import CategoryModalController from "./category_modal_controller"
 application.register("category-modal", CategoryModalController)
 
 import DeleteController from "./delete_controller"
 application.register("delete", DeleteController)
 
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import MenuController from "./menu_controller"
+application.register("menu", MenuController)
+
+import TinymceController from "./tinymce_controller"
+application.register("tinymce", TinymceController)

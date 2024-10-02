@@ -65,9 +65,11 @@
         <p class="text-sm">Hide section from navigation menu</p>
       </div>
 
-    <div class="my-5">
-      <%= form.label :body %>
-      <%= form.text_area :body, :class => "tinymce block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <div data-controller="tinymce">
+      <div class="my-5">
+        <%= form.label :body %>
+        <%= form.text_area :body, :class => "tinymce block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", id: "section_tinymce",  data: { tinymce_target: "textarea" } %>
+      </div>
     </div>
 
 

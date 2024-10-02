@@ -27,7 +27,10 @@ class SectionsController < ApplicationController
   end
 
   def update
+    Rails.logger.info("Received Body Content: #{params[:section][:body]}")
+
     if @section.update(section_params)
+      Rails.logger.info("Updated Section Body: #{@section.body}")
       redirect_to root_path, notice: 'Section was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
