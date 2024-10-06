@@ -125,7 +125,6 @@
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v2.6.1, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, asdf: 3.3.0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tinymce-rails (v7.3.0, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.5, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, asdf: 3.3.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v2.5.0, asdf: 3.3.0) [gem]" level="application" />
