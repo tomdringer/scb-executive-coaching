@@ -12,7 +12,7 @@
 	<% @reviews.each do |review| %>
 	  <div class="slide absolute w-2/3 inset-x-0 my-auto mx-auto bg-scb-blue" data-carousel-target="slide">
 		<div class="h-64 grid place-items-center max-w-7xl text-center mx-auto">
-		  <h2 class="mb-5 mx-auto  font-poppins"><%= review.body.html_safe %></h2>
+		  <h2 class="mb-5 mx-auto  font-poppins"><%= review.body&.html_safe %></h2>
 		  <p class="text-scb-white"><%= review.author %></p>
 		</div>
 		<div class="flex gap-3 mx-auto justify-center">
