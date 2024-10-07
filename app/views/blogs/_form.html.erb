@@ -28,10 +28,11 @@
     <p class="text-sm">Add a brief description of the article. This will be used for SEO and on Blog landing page.</p>
   </div>
 
-  <div class="my-5">
-    <%= form.label :body %>
-    <%= form.text_area :body, :class => "tinymce block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    <%= tinymce %>
+  <div data-controller="tinymce">
+    <div class="my-5">
+      <%= form.label :body %>
+      <%= form.text_area :body, :class => "tinymce block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", id: "section_body",  data: { tinymce_target: "textarea" } %>
+    </div>
   </div>
 
   <div class="field">
