@@ -39,8 +39,12 @@
     <div class="field mb-5">
       <%= form.label :category_id %>
       <%= form.collection_select :category_id, Category.all, :id, :name %>
+      <%= link_to "Add Category", new_category_path, class: "rounded-lg py-3 px-5 bg-scb-green  text-white inline-block font-medium cursor-pointer ml-3" %>
+      <p class="text-sm text-gray-500">Please submit the blog before clicking on the add category button.</p>
     </div>
   <% end %>
+
+
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-scb-blue  text-white inline-block font-medium cursor-pointer" %>

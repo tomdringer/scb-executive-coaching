@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
   end
+
+  def new
+    @category = Category.new
+  end
   def create
     @category = Category.new(category_params)
     @category.article_id = params[:category][:article_id] # Assign the article ID
