@@ -23,7 +23,10 @@ module.exports = {
         'scb-gray': '#E7ECEF',
         'scb-white': '#ffffff',
         'red-700': '#E53E3E',
-      }
+      },
+      maxHeight: {
+        '132': '132px',
+      },
     },
   },
   plugins: [

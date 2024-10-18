@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_21_193135) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_17_194311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_21_193135) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.integer "category_id"
+  end
+
+  create_table "blogs_categories", force: :cascade do |t|
+    t.bigint "blog_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blogs_categories_on_blog_id"
+    t.index ["category_id"], name: "index_blogs_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -182,4 +191,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_21_193135) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blogs", "categories"
+  add_foreign_key "blogs_categories", "blogs"
+  add_foreign_key "blogs_categories", "categories"
 end

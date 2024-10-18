@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :blogs,  path: :blog
   resources :reviews
   resources :contacts
-  resources :categories, only: [:create]
+  resources :categories
   root 'home#index'
 
   post 'uploader/image' => 'uploader#image'

@@ -1,12 +1,9 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import { Application } from "@hotwired/stimulus"
 import "@hotwired/turbo-rails";
-
-
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
-import Category_modal_controller from "./controllers/category_modal_controller";
+import CategoriesController from "./controllers/categories_controller";
 import Tinymce_controller from "./controllers/tinymce_controller";
 
 window.Stimulus = Application.start()
@@ -14,7 +11,7 @@ window.Stimulus = Application.start()
 Stimulus.register("carousel", CarouselController)
 Stimulus.register("menu", MenuController);
 Stimulus.register("dialog", Dialog);
-Stimulus.register("category-modal", Category_modal_controller);
+Stimulus.register("categories", CategoriesController);
 Stimulus.register("tinymce", Tinymce_controller);
 
 
@@ -45,5 +42,3 @@ events.forEach(e => {
     console.log(e);
   });
 });
-
-import "@hotwired/turbo-rails"

@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach JS",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "type": "rdbg",
+            "request": "launch",
+            "name": "Rails server",
+            "script": "${workspaceRoot}/bin/rails",
+            "args": ["server", "-p", "3000"],
+            "useBundler": true,
+            "cwd": "${workspaceRoot}",
+            "env": {
+              "RAILS_ENV": "development"
+            },
+            "timeout": 10000  // 60 seconds timeout
+          },
+        {
+            "type": "rdbg",
+            "name": "Debug current file with rdbg",
+            "request": "launch",
+            "script": "${file}",
+            "args": [],
+            "askParameters": true
+        },
+        {
+            "type": "rdbg",
+            "name": "Attach with rdbg",
+            "request": "attach"
+        },
+        {    
+            "type": "node",
+            "request": "launch",
+            "name": "Overmind",
+            "script": "rm ./.overmind.sock overmind start -f Procfile.dev"
+        }
+    ]
+}

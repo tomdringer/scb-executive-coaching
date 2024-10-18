@@ -7,8 +7,8 @@ import { application } from "./application"
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 
-import CategoryModalController from "./category_modal_controller"
-application.register("category-modal", CategoryModalController)
+import CategoriesController from "./categories_controller"
+application.register("categories", CategoriesController)
 
 import DeleteController from "./delete_controller"
 application.register("delete", DeleteController)

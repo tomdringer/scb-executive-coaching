@@ -1,2 +1,2 @@
-js: yarn build_dev --watch=forever
 css: bin/rails tailwindcss:watch
+js: yarn build --watch

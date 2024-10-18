@@ -14,37 +14,33 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @blog.blogs_categories.build
   end
 
   # GET /blogs/1/edit
   def edit
+    @blog = Blog.find(params[:id])
+    @blog.blogs_categories.build if @blog.blogs_categories.empty?
   end
 
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
-
-    respond_to do |format|
-      if @blog.save
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully created." }
-        format.json { render :show, status: :created, location: @blog }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
+    if @blog.save
+      redirect_to @blog, notice: "Post created successfully"
+    else
+      render :new
     end
   end
 
+
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
-    respond_to do |format|
-      if @blog.update(blog_params)
-        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
-        format.json { render :show, status: :ok, location: @blog }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to @blog, notice: "Blog updated successfully"
+    else
+      render :edit, alert: "There was an error updating the blog"
     end
   end
 
@@ -66,6 +62,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :category, :description, :preview, :category_id)
+      params.require(:blog).permit(:title, :body, :description, :preview, blogs_categories_attributes: [:id, :category_id, :_destroy])
     end
 end
