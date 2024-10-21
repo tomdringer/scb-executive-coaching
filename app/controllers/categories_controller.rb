@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
   def create
     @category = Category.new(category_params)
-    @category.article_id = params[:category][:article_id] # Assign the article ID
+    @category.blog_id = params[:category][:blog_id] # Assign the blog ID
 
     if @category.save
       respond_to do |format|
@@ -49,6 +49,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :article_id)
+    params.require(:category).permit(:name, :blog_id)
   end
 end
