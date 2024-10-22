@@ -6,8 +6,22 @@
   </a>
   <div class="p-5">
     <%= link_to  blog do %>
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-scb-black"><%= blog.title %></h5>
-      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+      <div class="flex justify-between items-center">
+      <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-scb-black"><%= blog.title %></h5>
+      <div class="flex gap-1 items-center">
+        <% if blog.blogs_categories.any? %>
+          <% blog.categories.each do |category| %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+        </svg>
+        <span class="leading-none"><%=category.name %></span>
+          <% end %>
+        <% end %>
+      </div>
+      </div>
+
+      <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
     <% end %>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 max-h-132"><%= blog.description.truncate(236) %></p>

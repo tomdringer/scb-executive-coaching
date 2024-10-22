@@ -7,19 +7,12 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
   end
-
   def create
     @category = Category.new(category_params)
-    @category.blog_id = params[:category][:blog_id] # Assign the blog ID
-
-    respond_to do |format|
-      if @category.save
-        format.html { redirsect_to categories_path, notice: 'Category was successfully created.' }
-        format.json { render json: @category, status: :created }
-      else
-        format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
+    if @category.save
+      redirect_to categories_path, notice: "Category created successfully"
+    else
+      render :new
     end
   end
 
@@ -62,6 +55,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :blog_id)
+    params.require(:category).permit(:name)
   end
 end

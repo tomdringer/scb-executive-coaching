@@ -3,7 +3,6 @@ import "@hotwired/turbo-rails";
 import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
-import CategoriesController from "./controllers/categories_controller";
 import Tinymce_controller from "./controllers/tinymce_controller";
 
 window.Stimulus = Application.start()
@@ -11,7 +10,6 @@ window.Stimulus = Application.start()
 Stimulus.register("carousel", CarouselController)
 Stimulus.register("menu", MenuController);
 Stimulus.register("dialog", Dialog);
-Stimulus.register("categories", CategoriesController);
 Stimulus.register("tinymce", Tinymce_controller);
 
 

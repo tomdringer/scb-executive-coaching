@@ -17,6 +17,11 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :author %>
+    <%= form.text_field :author, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :preview %>
     <%= form.file_field :preview, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
     <p class="text-sm">This is a preview image. This will be used on Blog landing page.</p>
