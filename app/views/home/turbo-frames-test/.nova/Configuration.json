@@ -1,0 +1,14 @@
+{
+  "eablokker.tabsSidebar.config.collapsedFolders" : [
+
+  ],
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "html"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/turbo-frames-test\/index.html",
+    "file:\/\/\/Users\/tomdringer\/RubymineProjects\/scb-executive-coaching\/app\/views\/home\/turbo-frames-test\/messages.html"
+  ],
+  "workspace.art_style" : 0,
+  "workspace.name" : "turbo-frames-test"
+}
