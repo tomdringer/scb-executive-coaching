@@ -4,8 +4,14 @@ one:
   title: MyString
   body: MyText
   author: MyString
+  body_text_colour: "#000000"
+  body_text_size: 12
+  link_colour: "#000000"
 
 two:
   title: MyString
   body: MyText
   author: MyString
+  body_text_colour: "#000000"
+  body_text_size: 12
+  link_colour: "#000000"

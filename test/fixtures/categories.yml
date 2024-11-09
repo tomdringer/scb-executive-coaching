@@ -1,0 +1,13 @@
+# test/fixtures/categories.yml
+
+one:
+  id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  name: CategoryOne
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+two:
+  id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  name: CategoryTwo
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

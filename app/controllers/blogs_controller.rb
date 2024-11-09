@@ -14,13 +14,13 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
-    @blog.blogs_categories.build
+    @blog.blog_categories.build
   end
 
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
-    @blog.blogs_categories.build if @blog.blogs_categories.empty?
+    @blog.blog_categories.build if @blog.blog_categories.empty?
   end
 
   # POST /blogs or /blogs.json
@@ -62,6 +62,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def blog_params
-    params.require(:blog).permit(:title, :author, :body, :description, :preview, blogs_categories_attributes: [:id, :category_id, :_destroy])
+    params.require(:blog).permit(:title, :author, :body, :description, :preview, blog_categories_attributes: [:id, :category_id, :_destroy])
   end
 end

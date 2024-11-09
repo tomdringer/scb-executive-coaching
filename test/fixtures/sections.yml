@@ -1,9 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  body: MyText
+  body: "Sample body"
+  title: "Sample title"
+  name: "Sample name"
+  background_colour: "#FFFFFF"
+  order: 1
+  reviews: "Sample reviews"
+  title_size: "medium"
+  title_colour: "#000000"
+  hide_title: false
+  hide_menu: false
 
 two:
-  title: MyString
-  body: MyText
+  body: "Another body"
+  title: "Another title"
+  name: "Another name"
+  background_colour: "#000000"
+  order: 2
+  reviews: "Another reviews"
+  title_size: "large"
+  title_colour: "#FFFFFF"
+  hide_title: true
+  hide_menu: true

@@ -17,10 +17,10 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create review" do
     assert_difference("Review.count") do
-      post reviews_url, params: { review: { author: @review.author, body: @review.body, title: @review.title } }
+      post reviews_url, params: { review: { author: @review.author, body: @review.body, title: @review.title, body_text_colour: @review.body_text_colour, body_text_size: @review.body_text_size, link_colour: @review.link_colour } }
     end
 
-    assert_redirected_to review_url(Review.last)
+    assert_redirected_to root_url
   end
 
   test "should show review" do
@@ -35,7 +35,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update review" do
     patch review_url(@review), params: { review: { author: @review.author, body: @review.body, title: @review.title } }
-    assert_redirected_to review_url(@review)
+    assert_redirected_to root_url
   end
 
   test "should destroy review" do
@@ -43,6 +43,6 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
       delete review_url(@review)
     end
 
-    assert_redirected_to reviews_url
+    assert_redirected_to root_url
   end
 end

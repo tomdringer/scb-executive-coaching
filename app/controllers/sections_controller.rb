@@ -22,23 +22,25 @@ class SectionsController < ApplicationController
     if @section.save
       redirect_to root_path, notice: 'Section was successfully created.'
     else
+      Rails.logger.debug(@section.errors.full_messages)
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    Rails.logger.info("Received Body Content: #{params[:section][:body]}")
+    @section = Section.find(params[:id])
 
     if @section.update(section_params)
-      Rails.logger.info("Updated Section Body: #{@section.body}")
       redirect_to root_path, notice: 'Section was successfully updated.'
     else
+      Rails.logger.debug(@section.errors.full_messages)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @section.destroy
+    Rails.logger.debug(@section.errors.full_messages)
     redirect_to root_url, notice: 'Section was successfully destroyed.'
   end
 

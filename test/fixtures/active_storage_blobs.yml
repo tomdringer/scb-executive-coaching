@@ -1,0 +1,10 @@
+one:
+  id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  key: somekey
+  filename: preview.jpg
+  content_type: image/jpeg
+  metadata: {}
+  byte_size: 1234          # Include this attribute
+  checksum: somechecksum   # Include this as well
+  created_at: <%= Time.current %>
+  service_name: local

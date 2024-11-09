@@ -1,11 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: <%= ActiveRecord::FixtureSet.identify(:one) %>
   title: MyString
+  description: MyText
   body: MyText
   category: MyString
 
 two:
+  id: <%= ActiveRecord::FixtureSet.identify(:two) %>
   title: MyString
+  description: MyText
   body: MyText
   category: MyString

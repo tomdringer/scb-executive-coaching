@@ -3,6 +3,10 @@ require "test_helper"
 class BlogsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @blog = blogs(:one)
+    @blog.preview.attach(io: File.open(Rails.root.join('test', 'fixtures', 'files', 'preview.jpg')), filename: 'preview.jpg', content_type: 'image/jpeg')
+
+    @category = categories(:one)
+    @blog_category = blog_categories(:one)
   end
 
   test "should get index" do
@@ -26,6 +30,7 @@ class BlogsControllerTest < ActionDispatch::IntegrationTest
   test "should show blog" do
     get blog_url(@blog)
     assert_response :success
+    assert_select 'meta[property="og:image"][content=?]', url_for(@blog.preview)
   end
 
   test "should get edit" do

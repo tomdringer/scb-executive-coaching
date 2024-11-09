@@ -17,10 +17,10 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create section" do
     assert_difference("Section.count") do
-      post sections_url, params: { section: { body: @section.body, title: @section.title } }
+      post sections_url, params: { section: { body: @section.body, title: @section.title, name: @section.name, background_colour: @section.background_colour, order: @section.order, reviews: @section.reviews, title_size: @section.title_size, title_colour: @section.title_colour, hide_title: @section.hide_title, hide_menu: @section.hide_menu } }
     end
 
-    assert_redirected_to section_url(Section.last)
+    assert_redirected_to root_url
   end
 
   test "should show section" do
@@ -35,7 +35,7 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update section" do
     patch section_url(@section), params: { section: { body: @section.body, title: @section.title } }
-    assert_redirected_to section_url(@section)
+    assert_redirected_to root_url
   end
 
   test "should destroy section" do
@@ -43,6 +43,6 @@ class SectionsControllerTest < ActionDispatch::IntegrationTest
       delete section_url(@section)
     end
 
-    assert_redirected_to sections_url
+    assert_redirected_to root_url
   end
 end

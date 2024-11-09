@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blog_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  category_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+two:
+    blog_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+    category_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>

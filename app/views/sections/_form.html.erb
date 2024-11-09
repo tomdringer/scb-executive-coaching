@@ -2,10 +2,10 @@
     <%= form_with(model: section, local: true, class: "w-full", multipart: true) do |form| %>
       <% if section.errors.any? %>
         <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-          <h2><%= pluralize(sections.errors.count, "error") %> prohibited this intro from being saved:</h2>
+          <h2><%= pluralize(section.errors.count, "error") %> prohibited this intro from being saved:</h2>
 
           <ul>
-            <% sections.errors.each do |error| %>
+            <% section.errors.each do |error| %>
               <li><%= error.full_message %></li>
             <% end %>
           </ul>
