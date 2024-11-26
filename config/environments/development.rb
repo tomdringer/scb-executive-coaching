@@ -21,9 +21,9 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.hosts << "scb.local"
+  config.hosts << "scb-96.localcan.dev"
 
-  config.action_mailer.default_url_options = { host: 'scb.local', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'scb-96.localcan.dev', port: 3000 }
 
   config.active_storage.variant_processor = :mini_magick
 

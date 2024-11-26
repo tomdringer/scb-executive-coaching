@@ -1,10 +1,10 @@
-<%= form_with(model: blog, class: "contents", multipart: true) do |form| %>
-  <% if blog.errors.any? %>
+<%= form_with(model: resource, class: "contents", multipart: true) do |form| %>
+  <% if resource.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
 
       <ul>
-        <% blog.errors.each do |error| %>
+        <% resource.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -42,10 +42,12 @@
 
   <div class="field mb-5">
     <%= form.label :category_id, "Category" %>
-    <%= form.collection_select :category_id, blog_categories, :id, :name, prompt: 'Select a Category' %>
+    <%= form.collection_select :category_id, resource_categories, :id, :name, prompt: 'Select a Category' %>
     <%= link_to "Add Category", new_category_path, class: "rounded-lg py-3 px-5 bg-scb-green text-white inline-block font-medium cursor-pointer ml-3" %>
     <p class="text-sm text-gray-500">Please submit the blog before clicking on the add category button.</p>
   </div>
+
+
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-scb-blue  text-white inline-block font-medium cursor-pointer" %>

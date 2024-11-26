@@ -1,5 +1,6 @@
 <tr id="<%= dom_id(category) %>">
   <td class="px-8 py-4 whitespace-nowrap text-md font-medium text-gray-900"><%= category.name %></td>
+  <td class="px-8 py-4 whitespace-nowrap text-md font-medium text-gray-900"><%= category.area %></td>
   <td class="px-8 py-4 whitespace-nowrap text-sm font-medium">
 	<%= link_to "Edit", edit_category_path(category), class: "p-3 bg-scb-blue text-white py-2 px-4 rounded mr-2" %>
 	<%= link_to "Delete", category, method: :delete, class: "p-3 bg-red-700 text-white py-2 px-4 rounded" %>

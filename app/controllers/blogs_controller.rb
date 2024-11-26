@@ -12,15 +12,16 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/new
+  # app/controllers/blogs_controller.rb
   def new
     @blog = Blog.new
-    @blog.blog_categories.build
+    @blog_categories = Category.where(area: 'blog')
   end
 
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
-    @blog.blog_categories.build if @blog.blog_categories.empty?
+    @blog_categories = Category.where(area: 'blog')
   end
 
   # POST /blogs or /blogs.json

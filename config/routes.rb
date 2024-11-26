@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :contacts
   resources :categories
+  resources :resources
   root 'home#index'
 
   post 'uploader/image' => 'uploader#image'
