@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: scb_executive_coaching_production
-  username: scb_executive_coaching
+  database: postgres_zmdu
+  username: postgres_zmdu_user
   password: <%= ENV["SCB_EXECUTIVE_COACHING_DATABASE_PASSWORD"] %>
