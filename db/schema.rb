@@ -14,20 +14,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_164416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "abouts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title_colour"
-    t.string "title_size"
-    t.string "body_text_colour"
-    t.string "body_text_size"
-    t.string "link_colour"
-    t.boolean "hide_title"
-    t.string "background_colour"
-  end
-
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -66,13 +52,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_164416) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "blog_categories", id: :bigint, default: -> { "nextval('blogs_categories_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "blog_categories", force: :cascade do |t|
     t.bigint "blog_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["blog_id"], name: "index_blogs_categories_on_blog_id"
-    t.index ["category_id"], name: "index_blogs_categories_on_category_id"
+    t.index ["blog_id"], name: "index_blog_categories_on_blog_id"
+    t.index ["category_id"], name: "index_blog_categories_on_category_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -104,20 +90,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_164416) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "intros", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title_colour"
-    t.string "title_size"
-    t.string "body_text_colour"
-    t.string "body_text_size"
-    t.string "link_colour"
-    t.boolean "hide_title"
-    t.string "background_colour"
   end
 
   create_table "resource_categories", force: :cascade do |t|
@@ -169,34 +141,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_164416) do
     t.text "alignment"
     t.boolean "reviews"
     t.text "body"
-  end
-
-  create_table "services", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title_colour"
-    t.string "title_size"
-    t.string "body_text_colour"
-    t.string "body_text_size"
-    t.string "link_colour"
-    t.boolean "hide_title"
-    t.string "background_colour"
-  end
-
-  create_table "stories", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title_colour"
-    t.string "title_size"
-    t.string "body_text_colour"
-    t.string "body_text_size"
-    t.string "link_colour"
-    t.boolean "hide_title"
-    t.string "background_colour"
   end
 
   create_table "users", force: :cascade do |t|
