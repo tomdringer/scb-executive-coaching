@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: scb_executive_coaching
   username: scb_executive_coaching_user
   password: <%= ENV["DATABASE_PASSWORD"] %>
