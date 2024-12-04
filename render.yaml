@@ -1,8 +1,8 @@
 databases:
-  - name: postgres
+  - name: scb-executive-coaching
     ipAllowList: []
     databaseName: scb_executive_coaching
-    user: scbec
+    user: scb_executive_coaching_user
 
 services:
   - type: web
@@ -13,7 +13,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: scb_executive_coaching
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
