@@ -3,7 +3,6 @@ databases:
     ipAllowList: []
     databaseName: scb_executive_coaching
     user: scb_executive_coaching_user
-    password: <%= ENV["DATABASE_PASSWORD"] %>
 
 services:
   - type: web
