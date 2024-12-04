@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: scb-executive-coaching
+  database: scb_executive_coaching
   username: scb_executive_coaching_user
   password: <%= ENV["DATABASE_PASSWORD"] %>
