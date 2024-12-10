@@ -4,6 +4,7 @@ import MenuController from "./controllers/menu_controller"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
 import Tinymce_controller from "./controllers/tinymce_controller";
+import Rails from "@rails/ujs";
 
 window.Stimulus = Application.start()
 

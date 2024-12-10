@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  title: "Example Resource"
+  body: "Test body"
+  category_id: 1
+  description: "A test description"
+  link: "http://example.com"
+  author: "Author Name"
+
+two:
+  id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  title: "Example Resource"
+  body: "Test body"
+  category_id: 1
+  description: "A test description"
+  link: "http://example.com"
+  author: "Author Name"

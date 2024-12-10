@@ -28,11 +28,11 @@
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/scb_executive_coaching_test</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="postgres@dpg-cps62ag8fa8c73927270-a" uuid="54057de4-53d9-47bb-adff-c84dbe84c4d7">
+    <data-source source="LOCAL" name="PostgreSQL" uuid="54057de4-53d9-47bb-adff-c84dbe84c4d7">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://dpg-cps62ag8fa8c73927270-a:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://scb_executive_coaching_user:jaSBzgihI5e4u8W8YJxwBW3WZElytfkd@dpg-ct8al91u0jms73dmi38g-a.oregon-postgres.render.com/scb_executive_coaching</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

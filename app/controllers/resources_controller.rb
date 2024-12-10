@@ -1,5 +1,6 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /blogs or /blogs.json
   def index
@@ -20,14 +21,14 @@ class ResourcesController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @resource = Resource.find(params[:id])
-    @resource.resource_categories.build if @resource.resource_categories.empty?
+    @resource_categories = Category.where(area: 'resource')
   end
 
   # POST /blogs or /blogs.json
   def create
     @resource = Resource.new(resource_params)
     if @resource.save
-      redirect_to @resource, notice: "Resource created successfully"
+      redirect_to @resource, notice: 'Resource created successfully'
     else
       render :new
     end
@@ -38,9 +39,9 @@ class ResourcesController < ApplicationController
   def update
     @resource = Resource.find(params[:id])
     if @resource.update(resource_params)
-      redirect_to @resource, notice: "Resource updated successfully"
+      redirect_to @resource, notice: 'Resource updated successfully'
     else
-      render :edit, alert: "There was an error updating the resource"
+      render :edit, alert: 'There was an error updating the resource'
     end
   end
 
@@ -49,7 +50,7 @@ class ResourcesController < ApplicationController
     @resource.destroy!
 
     respond_to do |format|
-      format.html { redirect_to resources_url, notice: "Resources was successfully destroyed." }
+      format.html { redirect_to resources_url, notice: 'Resources was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -62,6 +63,7 @@ class ResourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def resource_params
-    params.require(:resource).permit(:title, :author, :body, :description, :preview, resource_categories_attributes: [:id, :category_id, :_destroy])
+    params.require(:resource).permit(:title, :author, :body, :file_upload, :link, :description, :preview,
+resource_categories_attributes: [:id, :category_id, :_destroy])
   end
 end

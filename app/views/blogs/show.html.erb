@@ -48,11 +48,13 @@
 
 	<hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-	<%= link_to "Edit this article", edit_blog_path(@blog), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-	<%= link_to "Back to articles", blogs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-	<div class="inline-block ml-2">
-	  <%= button_to "Destroy this article", @blog, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium bg-red-700 text-scb-white" %>
-	</div>
+	<% if user_signed_in? %>
+	  <%= link_to "Edit this article", edit_blog_path(@blog), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+	  <%= link_to "Back to articles", blogs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+	  <div class="inline-block ml-2">
+		<%= button_to "Destroy this article", @blog, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium bg-red-700 text-scb-white" %>
+	  </div>
+	<% end %>
   </div>
 <% else %>
   <p>Blog not found.</p>

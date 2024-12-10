@@ -11,8 +11,10 @@
     </div>
 
     <div class="flex gap-3">
-      <%= link_to 'Edit', edit_section_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
-      <%= link_to "Delete", section_path(section),  "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_section_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
+        <%= link_to "Delete", section_path(section),  "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
+      <% end %>
     </div>
   </div>
 </section>

@@ -11,11 +11,11 @@
   <div class="p-6 max-w-7xl mx-auto flex flex-col items-center">
     <div class="flex items-center justify-between w-full">
       <h1 class="font-bold text-4xl">Resources</h1>
-      <%= link_to "New post", new_resource_path, class: "rounded-lg py-3 px-5 bg-scb-blue text-white block font-medium" %>
+      <%= link_to "New resource", new_resource_path, class: "rounded-lg py-3 px-5 bg-scb-blue text-white block font-medium" %>
     </div>
   </div>
 
-  <div id="blogs" class="max-w-7xl mx-auto  p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div id="resources" class="max-w-7xl mx-auto  p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <% @resources.each do |resource| %>
       <%= render resource %>
     <% end %>

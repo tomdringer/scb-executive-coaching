@@ -40,6 +40,17 @@
     </div>
   </div>
 
+  <div class="my-5">
+    <%= form.label :file_upload %>
+    <%= form.file_field :file_upload, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <p class="text-sm">This is a file upload field. Use this for image or pdf uploads etc..</p>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :link %>
+    <%= form.text_field :link, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
   <div class="field mb-5">
     <%= form.label :category_id, "Category" %>
     <%= form.collection_select :category_id, resource_categories, :id, :name, prompt: 'Select a Category' %>

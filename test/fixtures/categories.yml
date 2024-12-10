@@ -5,9 +5,11 @@ one:
   name: CategoryOne
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
+  area: CategoryOne
 
 two:
   id: <%= ActiveRecord::FixtureSet.identify(:two) %>
   name: CategoryTwo
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
+  area: CategoryTwo
