@@ -1,0 +1,93 @@
+<% content_for :meta_title, "Contact Us - SCB Executive Coaching" %>
+<% content_for :meta_description, "Contact SCB Executive Coaching" %>
+
+<div class="mx-auto flex flex-col items-center py-16 max-w-7xl" data-controller="input-validator">
+  <h1 class="font-bold text-4xl">Contact Us</h1>
+
+	<%= form_with model: @contact_us, url: contact_us_path, local: true, class: "w-full bg-white p-6 shadow-md rounded-md" do |form| %>
+
+	  <div>
+
+		<div class="mt-2">
+		  <%= form.text_field :name,
+							  data: {
+								input_validator_target:"field",
+								field: "name",
+								validations: json_validations_for(@contact_us, :name)
+							  },
+							  id: 'name',
+							  placeholder: 'Name',
+							  autocomplete: "given-name",
+							  class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+							  :autofocus => true
+		  %>
+		  <div data-input-validator-target="errors" data-field="name"></div>
+		</div>
+	  </div>
+
+	  <div class="hidden">
+		<%= form.label :nickname %>
+		<%= form.text_field :nickname %>
+	  </div>
+
+	  <div>
+
+		<div class="mt-2">
+		  <%= form.text_field :subject,
+							  data: {
+								input_validator_target:"field",
+								field: "subject",
+								validations: json_validations_for(@contact_us, :subject)
+							  },
+							  id: 'subject',
+							  placeholder: 'Subject',
+							  class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+							  :autofocus => true
+		  %>
+		  <div data-input-validator-target="errors" data-field="subject"></div>
+		</div>
+	  </div>
+
+	  <div>
+		<div class="mt-2">
+		  <%= form.text_field :email,
+							  data: {
+								input_validator_target:"field",
+								field: "email",
+								validations: json_validations_for(@contact_us, :email)
+							  },
+							  id: 'email',
+							  placeholder: 'Email',
+							  class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+							  :autofocus => true
+		  %>
+		  <div data-input-validator-target="errors" data-field="email"></div>
+		</div>
+	  </div>
+
+	  <div>
+
+		<div class="mt-2">
+		  <%= form.text_area :message,
+							 data: {
+							   input_validator_target:"field",
+							   field: :message,
+							   validations: json_validations_for(@contact_us, :message),
+							   character_counter_target:"input"
+							 },
+							 id: 'message',
+							 placeholder: 'Your message here...',
+							 rows:"3",
+							 class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+		  %>
+		</div>
+		<div data-input-validator-target="errors" data-field="message"></div>
+	  </div>
+
+	  <div>
+		<%= form.submit "Send",  class: "mt-2 flex justify-center rounded-md bg-scb-blue px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+	  </div>
+
+	<% end %>
+
+  </div>

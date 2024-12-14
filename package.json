@@ -11,6 +11,7 @@
     "esbuild": "^0.21.5",
     "http-server": "^14.1.1",
     "stimulus": "^3.2.2",
+    "stimulus-inline-input-validations": "^1.2.0",
     "tinymce": "^7.3.0"
   },
   "scripts": {

@@ -53,15 +53,16 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <%= link_to  "Blog", blogs_path, class: "text-sm font-semibold leading-6 text-scb-white" %>
-          <%= link_to  "Resources", resources_path, class: "text-sm font-semibold leading-6 text-scb-white" %>
+          <%= link_to  "Blog", blogs_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
+          <%= link_to  "Resources", resources_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
           <% if @sections.present? %>
             <% @sections.each do |section| %>
               <% unless section.hide_menu %>
-                <a href="<%= root_path %>#<%= section.name.downcase %>"  class="text-sm font-semibold leading-6 text-scb-white"><%= section.name %></a>
+                <a href="<%= root_path %>#<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
               <% end %>
             <% end %>
           <% end %>
+          <%= link_to  "Contact Us", contact_us_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <% if user_signed_in? %>
@@ -99,6 +100,7 @@
                     <a href="<%= root_path %>#<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
                   <% end %>
                 <% end %>
+                <%= link_to  "Contact Us", contact_us_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
               </div>
               <div class="py-6">
                 <% if user_signed_in? %>
@@ -115,6 +117,11 @@
     </header>
 
     <%= yield %>
+
+    <div data-controller="cookie-banner" id="cookie-banner" class="fixed bottom-0 w-full bg-green-500 p-10 text-center" style="">
+      <p class="mb-4">We use cookies only for analytics to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/privacy">Learn more</a></p>
+    <button id="cookie-banner-button" class="button text-gray-900 rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-white/80" data-action="cookie-banner#dismiss">Got it!</button>
+    </div>
 
   </body>
 </html>

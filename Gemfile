@@ -4,6 +4,8 @@ ruby '3.3.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'net-dns', '~> 0.9.0'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
