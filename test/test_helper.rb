@@ -7,6 +7,7 @@ Minitest::Reporters::SpecReporter.new
 
 module ActiveSupport
   class TestCase
+    include Devise::Test::IntegrationHelpers
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 

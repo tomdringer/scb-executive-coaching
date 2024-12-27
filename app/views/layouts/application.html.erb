@@ -30,7 +30,17 @@
     <%= favicon_link_tag asset_path('favicon.png') %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", cache: "false" %>
+
+    <!-- MailerLite Universal -->
+    <script>
+      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '1023640');
+    </script>
+    <!-- End MailerLite Universal -->
 
   </head>
 
@@ -53,19 +63,29 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <%= link_to  "Blog", blogs_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
-          <%= link_to  "Resources", resources_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
-          <% if @sections.present? %>
-            <% @sections.each do |section| %>
+          <% if @menu_sections.present? %>
+            <% @menu_sections.order(:position).each do |section| %>
               <% unless section.hide_menu %>
-                <a href="<%= root_path %>#<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
+                <!-- If the item is a homepage section -->
+                <% if section.show_on_home %>
+                  <a href="<%= "#{root_path}##{section.name.downcase}" %>"
+                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+                    <%= section.name %>
+                  </a>
+                <% else %>
+                  <!-- If the item is a standalone page -->
+                  <a href="<%= eval(section.custom_link) %>"
+                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+                    <%= section.name %>
+                  </a>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
-          <%= link_to  "Contact Us", contact_us_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <% if user_signed_in? %>
+            <%= link_to "Admin", admin_path, class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete },  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
           <% else %>
             <a href="/users/sign_up" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">Sign up</a>
@@ -93,17 +113,29 @@
           <div class="mt-6 flow-root" data-menu-target="nav">
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
-                <%= link_to  "Blog", blogs_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
-                <%= link_to  "Resources", resources_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
-                <% if @sections.present? %>
-                  <% @sections.each do |section| %>
-                    <a href="<%= root_path %>#<%= section.name.downcase %>"  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950"><%= section.name %></a>
+                <% if @menu_sections.present? %>
+                  <% @menu_sections.order(:position).each do |section| %>
+                    <% unless section.hide_menu %>
+                      <!-- If the item is a homepage section -->
+                      <% if section.show_on_home %>
+                        <a href="<%= "#{root_path}##{section.name.downcase}" %>"
+                           class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+                          <%= section.name %>
+                        </a>
+                      <% else %>
+                        <!-- If the item is a standalone page -->
+                        <a href="<%= eval(section.custom_link) %>"
+                           class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+                          <%= section.name %>
+                        </a>
+                      <% end %>
+                    <% end %>
                   <% end %>
                 <% end %>
-                <%= link_to  "Contact Us", contact_us_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
               </div>
               <div class="py-6">
                 <% if user_signed_in? %>
+                  <%= link_to "Admin", admin_path,  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete },  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
                 <% else %>
                   <a href="/users/sign_up" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">Sign up</a>
@@ -115,6 +147,8 @@
         </div>
       </div>
     </header>
+
+    <div class="ml-embedded" data-form="uH82Zf"></div>
 
     <%= yield %>
 

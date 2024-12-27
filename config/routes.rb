@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :resources
   root 'home#index'
 
+  get 'admin', to: 'admin#index'
+
+  post "update_sections_order", to: "reorder#update_sections_order"
+
   post 'uploader/image' => 'uploader#image'
 
   match '/404', to: 'errors#not_found', via: :all

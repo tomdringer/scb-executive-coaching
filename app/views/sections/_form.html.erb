@@ -24,8 +24,15 @@
       </div>
 
     <div class="my-5 w-full">
+      <%= form.label :custom_link %>
+      <%= form.text_field :custom_link, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      <p class="text-sm">Add a pre-configured link, like blog or resources.</p>
+    </div>
+
+    <div class="my-5 w-full">
       <%= form.label :reviews %>
       <%= form.check_box :reviews %>
+      <p class="text-sm">Check this box if you're creating the reviews section for the first time.</p>
     </div>
 
       <div class="my-5 w-full">
@@ -62,8 +69,14 @@
       <div class="my-5 w-full">
         <%= form.label :hide_menu %>
         <%= form.check_box :hide_menu %>
-        <p class="text-sm">Hide section from navigation menu</p>
+        <p class="text-sm">Hide section from navigation menu.</p>
       </div>
+
+    <div class="my-5 w-full">
+      <%= form.label :show_on_home %>
+      <%= form.check_box :show_on_home %>
+      <p class="text-sm">Tick this box to add the section to the home page.</p>
+    </div>
 
     <div data-controller="tinymce">
       <div class="my-5">

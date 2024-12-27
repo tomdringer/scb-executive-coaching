@@ -3,7 +3,11 @@ class SectionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @sections = Section.order(:order)
+    # Get reorders sorted by position
+    reordered_ids = Reorder.order(:position).pluck(:item_id)
+
+    # Use the ordering to sort @sections
+    @sections = Section.all.sort_by { |section| reordered_ids.index(section.id) || Float::INFINITY }
   end
 
   def new
@@ -52,6 +56,6 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :background_colour, :hide_menu)
+    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu)
   end
 end

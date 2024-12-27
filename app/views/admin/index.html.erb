@@ -1,0 +1,36 @@
+<div class="container mx-auto p-6 max-w-7xl">
+  <h1 class="text-xl font-bold mb-6">Admin Dashboard</h1>
+
+<div class="flex mb-5 gap-6">
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+	<h2 class="text-lg font-semibold mb-4">Articles</h2>
+
+	<div class="text-4xl text-center">
+		<%= @blogs.count %>
+	</div>
+  </div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+	<h2 class="text-lg font-semibold mb-4">Reviews</h2>
+
+	<div class="text-4xl text-center">
+		<%= @reviews.count %>
+	</div>
+  </div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+	<h2 class="text-lg font-semibold mb-4">Resources</h2>
+
+	<div class="text-4xl text-center">
+		<%= @resources.count  %>
+	</div>
+
+  </div>
+</div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md w-50">
+	<h2 class="text-lg font-semibold mb-4">Menu Builder</h2>
+
+	<%= render partial: 'admin/partials/menu_builder', locals: { sections: @home_sections } %>
+  </div>
+</div>

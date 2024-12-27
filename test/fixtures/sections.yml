@@ -9,6 +9,7 @@ one:
   title_colour: "#000000"
   hide_title: false
   hide_menu: false
+  custom_link: "blogs_path"
 
 two:
   body: "Another body"
@@ -21,3 +22,4 @@ two:
   title_colour: "#FFFFFF"
   hide_title: true
   hide_menu: true
+  custom_link: "resources_path"

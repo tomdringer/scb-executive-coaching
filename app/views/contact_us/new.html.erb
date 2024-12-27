@@ -4,9 +4,9 @@
 <div class="mx-auto flex flex-col items-center py-16 max-w-7xl" data-controller="input-validator">
   <h1 class="font-bold text-4xl">Contact Us</h1>
 
-	<%= form_with model: @contact_us, url: contact_us_path, local: true, class: "w-full bg-white p-6 shadow-md rounded-md" do |form| %>
+	<%= form_with model: @contact_us, url: contact_us_path, local: true, class: "w-full bg-white p-6 shadow-md rounded-md", id: "contactForm" do |form| %>
 
-	  <div>
+	  <div data-controller="contact" data-action="submit->contact#submit">
 
 		<div class="mt-2">
 		  <%= form.text_field :name,
@@ -64,6 +64,19 @@
 		  <div data-input-validator-target="errors" data-field="email"></div>
 		</div>
 	  </div>
+
+	<div>
+	  <div class="mt-2">
+		<%= form.text_field :email_confirmation,
+							id: 'email_confirmation',
+							placeholder: 'Confirm Email',
+							class: "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+							:autofocus => true
+		%>
+		<div data-input-validator-target="errors" data-field="email_confirmation"></div>
+	  </div>
+	  <div id="error-message" style="color: red; font-size: 14px;"></div>
+	</div>
 
 	  <div>
 

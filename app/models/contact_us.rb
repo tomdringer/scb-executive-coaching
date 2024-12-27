@@ -4,6 +4,7 @@ class ContactUs < MailForm::Base
   attribute :nickname
   attribute :subject
   attribute :email
+  attribute :email_confirmation
   attribute :message
 
   validates :name, :subject,
@@ -12,12 +13,17 @@ class ContactUs < MailForm::Base
             format: { with: /\A[a-zA-Z\s-]+\z/, message: 'Only allows letters, spaces, and hyphens' }
 
   validates :email,
-            presence: true,
+            presence: true, format: { with: URI::MailTo::EMAIL_REGEXP },
             allow_blank: false,
             length: {
               minimum: 5,
               maximum: 50
             }
+
+  validates :email_confirmation,
+            presence: true
+
+  validate :emails_match
 
   validates :message,
             allow_blank: false,
@@ -26,7 +32,7 @@ class ContactUs < MailForm::Base
               maximum: 500
             }
 
-
+  private
 
   def headers
     {
@@ -35,5 +41,12 @@ class ContactUs < MailForm::Base
       from: 'tom@eigotec.com',  # change this to be the email it is coming from
       reply_to: %("#{name}" <#{email}>)
     }
+
+    def emails_match
+
+      if email != email_confirmation
+        errors.add(:email_confirmation, "doesn't match Email")
+      end
+    end
   end
 end

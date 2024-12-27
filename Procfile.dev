@@ -1,2 +1,2 @@
-css: bin/rails tailwindcss:watch
-js: yarn build --watch
+css: tailwindcss -i app/assets/stylesheets/application.tailwind.css -o app/assets/builds/application.css --watch
+js: esbuild app/javascript/application.js --bundle --watch --sourcemap --outfile=app/assets/builds/application.js

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_06_181906) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_22_192229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,6 +92,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_181906) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reorders", force: :cascade do |t|
+    t.integer "section_id", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "resource_categories", force: :cascade do |t|
     t.bigint "resource_id", null: false
     t.bigint "category_id", null: false
@@ -146,6 +153,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_181906) do
     t.text "alignment"
     t.boolean "reviews"
     t.text "body"
+    t.integer "position", default: 1, null: false
+    t.boolean "show_on_home"
+    t.string "custom_link"
   end
 
   create_table "users", force: :cascade do |t|

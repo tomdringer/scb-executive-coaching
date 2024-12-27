@@ -2,6 +2,9 @@
 require 'test_helper'
 
 class ResourcesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers # Include Devise integration helpers
+
+  user = User.create!(email: 'test3@example.com', password: 'password')
 
   setup do
     @resource = resources(:one)

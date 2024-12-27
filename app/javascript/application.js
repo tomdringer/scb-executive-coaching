@@ -1,12 +1,14 @@
 import { Application } from "@hotwired/stimulus"
 import "@hotwired/turbo-rails";
 import MenuController from "./controllers/menu_controller"
+import MatchingEmail from "./controllers/matching_email"
 import CarouselController from "./controllers/carousel_controller"
 import Dialog from "@stimulus-components/dialog";
 import Tinymce_controller from "./controllers/tinymce_controller";
 import Rails from "@rails/ujs";
 import CookieBannerController from "./controllers/cookie_banner_controller";
 import {InputValidator} from "stimulus-inline-input-validations";
+import MenuBuilderController from "./controllers/menu_builder_controller";
 
 window.Stimulus = Application.start()
 
@@ -16,6 +18,8 @@ Stimulus.register("dialog", Dialog);
 Stimulus.register("tinymce", Tinymce_controller);
 Stimulus.register('cookie-banner', CookieBannerController);
 Stimulus.register('input-validator', InputValidator);
+Stimulus.register('menu-builder', MenuBuilderController);
+Stimulus.register('matching_email', MatchingEmail);
 
 
 Stimulus.debug = process.env.NODE_ENV === "development"

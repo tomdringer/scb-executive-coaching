@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_nav
-    @sections = Section.order(:order)
+    @menu_sections = Section.all
   end
 end

@@ -1,0 +1,26 @@
+<div data-controller="menu-builder">
+  <ul
+	data-menu-builder-target="list"
+	class="flex flex-col bg-gray-100 p-4 rounded-md space-y-2"
+  >
+	<% @menu_sections.each do |section| %>
+	  <% unless section.hide_menu %>
+		<li
+		  class="flex items-center gap-3 p-2 bg-white border border-gray-300 rounded-md cursor-pointer"
+		  data-section-id="<%= section.id %>"
+		>
+		  <!-- Drag handle for dragging -->
+		  <span class="drag-handle cursor-grab text-gray-500 hover:text-gray-800">
+            ||
+          </span>
+		  <a
+			href="<%= root_path %>#<%= section.name.downcase %>"
+			class="block text-gray-800 font-medium"
+		  >
+			<%= section.name %>
+		  </a>
+		</li>
+	  <% end %>
+	<% end %>
+  </ul>
+</div>
