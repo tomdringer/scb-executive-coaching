@@ -32,8 +32,6 @@ class ContactUs < MailForm::Base
               maximum: 500
             }
 
-  private
-
   def headers
     {
       to: 'stuart@scbexecutivecoaching.com', # change this to be the email you want sent to
