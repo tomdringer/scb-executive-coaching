@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.scbexecutivecoaching.com',
+    address: 'smtp.hostinger.com',
     port: 465,
     domain: 'scbexecutivecoaching.com',
     authentication: 'plain',
