@@ -36,17 +36,17 @@ class ContactUs < MailForm::Base
 
   def headers
     {
-      to: 'tom@tomdringer.com', # change this to be the email you want sent to
-      subject: 'RDD Query',
-      from: 'tom@eigotec.com',  # change this to be the email it is coming from
+      to: 'stuart@scbexecutivecoaching.com', # change this to be the email you want sent to
+      subject: 'SCB Executive Coaching Query',
+      from: 'stuart@scbexecutivecoaching.com',  # change this to be the email it is coming from
       reply_to: %("#{name}" <#{email}>)
     }
+  end
 
-    def emails_match
-
-      if email != email_confirmation
-        errors.add(:email_confirmation, "doesn't match Email")
-      end
+  def emails_match
+    if email != email_confirmation
+      errors.add(:email_confirmation, "doesn't match Email")
     end
   end
 end
+
