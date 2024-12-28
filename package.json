@@ -11,7 +11,6 @@
     "@stimulus-components/sortable": "^5.0.1",
     "esbuild": "^0.21.5",
     "http-server": "^14.1.1",
-    "mailerlite": "^0.4.0",
     "sortablejs": "^1.15.6",
     "stimulus": "^3.2.2",
     "stimulus-inline-input-validations": "^1.2.0",

@@ -12,6 +12,16 @@ Rails.application.configure do
   config.assets.check_precompiled_asset = false
   config.assets.digest = false
 
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.scbexecutivecoaching.com',
+    port: 587,
+    domain: 'scbexecutivecoaching.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['MAIL_USERNAME'],
+    password: ENV['MAIL_PASSWORD']
+  }
+
   # Do not eager load code on boot.
   config.eager_load = false
 
