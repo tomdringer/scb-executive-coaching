@@ -11,11 +11,17 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  config.mailer = 'MailForm::Base'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer_default_url_options = { host: 'https://scb-executive-coaching.onrender.com/' }
+  Rails.application.routes.default_url_options[:host] = 'https://scb-executive-coaching.onrender.com/'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
     address: 'smtp.hostinger.com',
     port: 465,
