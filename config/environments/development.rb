@@ -13,8 +13,8 @@ Rails.application.configure do
   config.assets.digest = false
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.scbexecutivecoaching.com',
-    port: 587,
+    address: 'smtp.hostinger.com',
+    port: 465,
     domain: 'scbexecutivecoaching.com',
     authentication: 'plain',
     enable_starttls_auto: true,
