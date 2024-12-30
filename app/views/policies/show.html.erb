@@ -1,0 +1,14 @@
+<div class="p-6 max-w-7xl mx-auto">
+  <h1 class="text-4xl mb-3"><%= @policy.title %></h1>
+  <div id="policy_content"><%= @policy.content&.html_safe %></div>
+
+  <hr class="mt-6 mb-6">
+
+  <% if user_signed_in? %>
+	<div class="mt-6">
+  		<%= link_to 'Edit', edit_policy_path(@policy), class: 'button rounded-lg py-3 px-5 bg-scb-blue text-white' %>
+  		<%= link_to 'Back', policies_path, class: 'button rounded-lg px-5 py-3 bg-scb-gray' %>
+	</div>
+  <% end %>
+
+</div>

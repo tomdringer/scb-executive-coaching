@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :categories
   resources :resources
+  resources :policies
   root 'home#index'
 
   get 'admin', to: 'admin#index'

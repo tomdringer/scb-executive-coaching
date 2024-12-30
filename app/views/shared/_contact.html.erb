@@ -62,5 +62,11 @@
       <%= render partial: 'shared/mailerlite' %>
     </div>
     <p class="text-center">Copyright <%= Time.current.year %> SCB Executive Coaching Ltd. All rights reserved.</p>
+
+    <ul class="flex gap-2 flex-row justify-center mt-3">
+      <% Policy.all.each do |policy| %>
+        <li><%= link_to policy.title, policy_path(policy) %></li>
+      <% end %>
+    </ul>
   </div>
 </section>

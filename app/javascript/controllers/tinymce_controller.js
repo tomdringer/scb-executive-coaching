@@ -35,9 +35,9 @@ export default class extends Controller {
       plugins: 'image table fullscreen code link lists advlist autolink charmap directionality nonbreaking visualchars visualblocks wordcount searchreplace save',
       toolbar: 'bold italic link undo redo forecolor backcolor bullist numlist outdent indent table image code save',
       valid_elements: '*[*]',
-      extended_valid_elements: 'table[width|height|cellspacing|cellpadding|border|align|class|style],tr,td,th[style|colspan|rowspan|width|height|align|valign|scope],tbody,thead,tfoot',
+      extended_valid_elements: 'table[width|height|cellspacing|cellpadding|border|align|class|style],tr,td,th[style|colspan|rowspan|width|height|align|valign|scope],tbody,thead,tfoot, section, p',
       forced_root_block: false,
-      entity_encoding: 'raw',
+      entity_encoding: 'html',
       remove_trailing_brs: false,
       license_key: 'gpl',
 

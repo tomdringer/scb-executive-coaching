@@ -26,7 +26,7 @@ Rails.application.configure do
     address: 'smtp.hostinger.com',
     port: 465,
     domain: 'scbexecutivecoaching.com',
-    authentication: 'plain',
+    authentication: 'SSL',
     enable_starttls_auto: true,
     user_name: ENV['MAIL_USERNAME'],
     password: ENV['MAIL_PASSWORD']

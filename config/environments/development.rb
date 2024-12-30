@@ -12,11 +12,16 @@ Rails.application.configure do
   config.assets.check_precompiled_asset = false
   config.assets.digest = false
 
+  config.action_mailer_default_url_options = { host: 'https://scb-96.localcan.dev' }
+  Rails.application.routes.default_url_options[:host] = 'https://scb-96.localcan.dev'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
     address: 'smtp.hostinger.com',
     port: 465,
     domain: 'scbexecutivecoaching.com',
-    authentication: 'plain',
+    authentication: 'SSL',
     enable_starttls_auto: true,
     user_name: ENV['MAIL_USERNAME'],
     password: ENV['MAIL_PASSWORD']

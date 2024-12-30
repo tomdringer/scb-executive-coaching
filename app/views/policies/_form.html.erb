@@ -1,0 +1,17 @@
+<div class="mx-auto max-w-7xl">
+  <%= form_with model: policy, local: true do |form| %>
+	<div>
+	  <%= form.label :title %>
+	  <%= form.text_field :title, class: 'form-control' %>
+	</div>
+	<div data-controller="tinymce">
+	  <div class="my-5">
+		<%= form.label :content %>
+		<%= form.text_area :content, :class => "tinymce block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", id: "policy_content",  data: { tinymce_target: "textarea" } %>
+	  </div>
+	</div>
+	<div>
+	  <%= form.submit class: 'btn btn-success' %>
+	</div>
+  <% end %>
+</div>

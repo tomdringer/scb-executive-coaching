@@ -11,6 +11,11 @@
 }
 
 */
-@import 'actiontext.css';
+
+#policy_content > section {
+    margin-bottom: 10px;
+}
+
+@import 'editor.css';
 @import 'application.css';
 @import 'mailierlite.css';
