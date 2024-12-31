@@ -3,6 +3,15 @@
 
 <div class="flex mb-5 gap-6">
   <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+
+	<h2 class="text-lg font-semibold mb-4">Courses</h2>
+
+	<div class="text-4xl text-center">
+	  <%= @coaching.count %>
+	</div>
+  </div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
 	<h2 class="text-lg font-semibold mb-4">Articles</h2>
 
 	<div class="text-4xl text-center">
@@ -26,11 +35,37 @@
 	</div>
 
   </div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+	<h2 class="text-lg font-semibold mb-4">Policies</h2>
+
+	<div class="text-4xl text-center">
+	  <%= @policies.count %>
+	</div>
+  </div>
+
+  <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
+	<h2 class="text-lg font-semibold mb-4">Categories</h2>
+
+	<div class="text-4xl text-center">
+	  <%= @categories.count %>
+	</div>
+  </div>
+
 </div>
 
   <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md w-50">
-	<h2 class="text-lg font-semibold mb-4">Menu Builder</h2>
-
+	<h2 class="text-lg font-semibold mb-2">Menu Builder</h2>
 	<%= render partial: 'admin/partials/menu_builder', locals: { sections: @home_sections } %>
+
+	<h2 class="text-lg font-semibold mb-2">Coaching</h2>
+	<%= render partial: 'admin/partials/coaching', locals: { coaching: @coaching } %>
+
+	<h2 class="text-lg font-semibold mb-2">Categories</h2>
+	<%= render partial: 'admin/partials/categories', locals: { category: @categories } %>
+
+	<h2 class="text-lg font-semibold mb-2">Policies</h2>
+	<%= render partial: 'admin/partials/policies', locals: { policy: @policies } %>
+
   </div>
 </div>

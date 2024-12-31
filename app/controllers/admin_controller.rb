@@ -7,5 +7,8 @@
       @sections = Section.all
       @users = User.all
       @reviews = Review.all
+      @categories = Category.all
+      @policies = Policy.all
+      @coaching = Coaching.all
     end
   end

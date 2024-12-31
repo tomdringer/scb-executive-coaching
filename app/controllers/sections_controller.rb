@@ -56,6 +56,6 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu)
+    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu, :show_on_home)
   end
 end

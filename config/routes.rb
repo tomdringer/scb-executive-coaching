@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :resources
   resources :policies
+  resources :coachings, path: 'coaching'
   root 'home#index'
 
   get 'admin', to: 'admin#index'
