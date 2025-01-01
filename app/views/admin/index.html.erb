@@ -1,5 +1,5 @@
 <div class="container mx-auto p-6 max-w-7xl">
-  <h1 class="text-xl font-bold mb-6">Admin Dashboard</h1>
+  <h1 class="text-xl font-bold mb-6 font-poppins">Admin Dashboard</h1>
 
 <div class="flex mb-5 gap-6">
   <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md">
@@ -55,16 +55,16 @@
 </div>
 
   <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md w-50">
-	<h2 class="text-lg font-semibold mb-2">Menu Builder</h2>
+	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Menu Builder</h2>
 	<%= render partial: 'admin/partials/menu_builder', locals: { sections: @home_sections } %>
 
-	<h2 class="text-lg font-semibold mb-2">Coaching</h2>
+	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Coaching</h2>
 	<%= render partial: 'admin/partials/coaching', locals: { coaching: @coaching } %>
 
-	<h2 class="text-lg font-semibold mb-2">Categories</h2>
+	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Categories</h2>
 	<%= render partial: 'admin/partials/categories', locals: { category: @categories } %>
 
-	<h2 class="text-lg font-semibold mb-2">Policies</h2>
+	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Policies</h2>
 	<%= render partial: 'admin/partials/policies', locals: { policy: @policies } %>
 
   </div>

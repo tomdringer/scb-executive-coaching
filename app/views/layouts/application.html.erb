@@ -43,6 +43,18 @@
     </script>
     <!-- End MailerLite Universal -->
 
+    <!-- Google tag (gtag.js) -->
+    <%if Rails.env.production?  %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XHWR18TYR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6XHWR18TYR');
+    </script>
+    <% end %>
+
   </head>
 
   <body class="font-montserrat bg-scb-white m-0">
