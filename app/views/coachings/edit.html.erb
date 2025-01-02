@@ -1,8 +1,8 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing coaching</h1>
+<div class="mx-auto md:w-2/3 max-w-7xl py-6 px-6">
+  <h1 class="font-bold text-4xl">Editing course</h1>
 
   <%= render "form", coaching: @coaching %>
 
-  <%= link_to "Show this coaching", @coaching, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to coachings", coachings_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "More info", @coaching, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to coaching", coachings_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

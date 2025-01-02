@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="max-w-7xl py-6 px-6 mx-auto">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
@@ -7,14 +7,14 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl font-poppins">Coaching</h1>
-    <%= link_to "New coaching", new_coaching_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to "New course", new_coaching_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="coachings" class="min-w-full">
     <% @coachings.each do |coaching| %>
       <%= render coaching %>
       <p>
-        <%= link_to "Show this coaching", coaching, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to "More info", coaching, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       </p>
     <% end %>
   </div>

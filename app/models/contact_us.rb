@@ -34,7 +34,7 @@ class ContactUs < MailForm::Base
 
   def headers
     {
-      to: 'stuart@scbexecutivecoaching.com', # change this to be the email you want sent to
+      to: 'tom@tomdringer.com', # change this to be the email you want sent to
       subject: 'SCB Executive Coaching Query',
       from: 'stuart@scbexecutivecoaching.com',  # change this to be the email it is coming from
       reply_to: %("#{name}" <#{email}>)
