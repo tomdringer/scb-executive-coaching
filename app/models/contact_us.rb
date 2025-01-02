@@ -36,7 +36,7 @@ class ContactUs < MailForm::Base
     {
       to: 'tom@tomdringer.com', # change this to be the email you want sent to
       subject: 'SCB Executive Coaching Query',
-      from: 'stuart@scbexecutivecoaching.com',  # change this to be the email it is coming from
+      from: 'scb.contact.us@gmail.com',  # change this to be the email it is coming from
       reply_to: %("#{name}" <#{email}>)
     }
   end
