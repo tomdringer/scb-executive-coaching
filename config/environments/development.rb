@@ -25,6 +25,8 @@ Rails.application.configure do
     password: ENV['MAIL_PASSWORD']
   }
 
+  config.action_mailer.logger = ActiveSupport::Logger.new("log/mailer.log")
+
   # Do not eager load code on boot.
   config.eager_load = false
 
