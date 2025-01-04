@@ -12,6 +12,7 @@ class ContactUsController < ApplicationController
       @contact_us.deliver
       redirect_to '/contact_us/sent'
     else
+      Rails.logger.debug("ContactForm errors: #{@contact_form.errors.full_messages}")
       redirect_to '/contact_us/error'
     end
   end

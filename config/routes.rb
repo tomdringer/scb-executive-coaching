@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   get 'uploader/image'
   devise_for :users
   resources :sections
-  resources :blogs,  path: :blog
   resources :reviews
   resources :contacts
   resources :categories
-  resources :resources
   resources :policies
   resources :coachings, path: 'coaching'
   root 'home#index'
@@ -27,6 +25,18 @@ Rails.application.routes.draw do
   post '/contact_us', to: 'contact_us#create'
   get 'contact_us/sent'
   get 'contact_us/error'
+
+  resources :blogs, path: :blog, only: [:index, :show, :new, :create, :edit, :update] do
+    member do
+      get ':title', action: :show, as: 'with_title'
+    end
+  end
+
+  resources :resources, only: [:index, :show, :new, :create, :edit, :update] do
+    member do
+      get ':title', action: :show, as: 'with_title'
+    end
+  end
 
   require 'active_storage/engine'
   ActiveStorage::Engine.routes.draw do

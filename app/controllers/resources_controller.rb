@@ -10,6 +10,10 @@ class ResourcesController < ApplicationController
   # GET /blogs/1 or /blogs/1.json
   def show
     @resource = Resource.find(params[:id])
+
+    if params[:title] != @resource.title.parameterize
+      redirect_to resource_path(@resource.id, @resource.title.parameterize), status: :moved_permanently
+    end
   end
 
   # GET /blogs/new

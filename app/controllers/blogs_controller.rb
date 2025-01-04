@@ -10,6 +10,10 @@ class BlogsController < ApplicationController
   # GET /blogs/1 or /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
+
+    if params[:title] != @blog.title.parameterize
+      redirect_to blog_path(@blog.id, @blog.title.parameterize), status: :moved_permanently
+    end
   end
 
   # GET /blogs/new
