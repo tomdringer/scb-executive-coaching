@@ -5,9 +5,9 @@ class ReorderController < ApplicationController
 
     if ids.present?
       # Send a JSON response with valid data
-      render json: { status: "ok", message: "Reorder successful", ids: ids }
+      render json: { status: 'ok', message: 'Reorder successful', ids: ids }
     else
-      render json: { status: "error", message: "No IDs provided" }, status: 400
+      render json: { status: 'error', message: 'No IDs provided' }, status: 400
     end
   rescue StandardError => e
     # Log the error and send a proper error response
