@@ -26,7 +26,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.hostinger.com',
     port: 465,
-    authentication: 'SSL',
+    authentication: 'ssl',
     user_name: ENV['MAIL_USERNAME'],
     password: ENV['MAIL_PASSWORD']
   }
