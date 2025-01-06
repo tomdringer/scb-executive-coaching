@@ -25,7 +25,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     address: 'smtp.hostinger.com',
-    port: 587,
+    port: 465,
     authentication: :login,
     ssl: true,
     tls: true,
