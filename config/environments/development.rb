@@ -18,8 +18,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
-    address: 'imap.gmail.com',
-    port: 993,
+    address: 'smtp.hostinger.com',
+    port: 587,
     authentication: 'SSL/TLS',
     user_name: ENV['MAIL_USERNAME'],
     password: ENV['MAIL_PASSWORD']
