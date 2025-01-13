@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: %i[ show edit update destroy ]
+  before_action :set_section, only: %i[ show edit update destroy move]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -34,10 +34,12 @@ class SectionsController < ApplicationController
 
   def update
     @section = Section.find(params[:id])
+    @section = GlobalID::Locator.locate_signed(params[:sgid])
+    @section.insert_at(params[:position])
 
     if @section.update(section_params)
       redirect_to root_path, notice: 'Section was successfully updated.'
-    else
+
       Rails.logger.debug(@section.errors.full_messages)
       render :edit, status: :unprocessable_entity
     end
@@ -49,6 +51,10 @@ class SectionsController < ApplicationController
     redirect_to root_url, notice: 'Section was successfully destroyed.'
   end
 
+  def move
+    @section.insert_at(params[:position].to_i)
+  end
+
   private
 
   def set_section
@@ -56,6 +62,6 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu, :show_on_home)
+    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu, :show_on_home, :position)
   end
 end

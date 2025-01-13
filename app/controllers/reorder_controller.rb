@@ -1,21 +1,16 @@
 class ReorderController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def update_sections_order
-    ids = params[:ids] || []
-    Rails.logger.info "RECEIVED IDS: #{ids.inspect}"
-
-    if ids.present?
-      # Send a JSON response with valid data
-      render json: { status: 'ok', message: 'Reorder successful', ids: ids }
-    else
-      render json: { status: 'error', message: 'No IDs provided' }, status: 400
+    ids = params[:ids]
+    ids.each_with_index do |id, index|
+      section = Section.find_by(id: id)
+      section.update(position: index + 1) if section
     end
-  rescue StandardError => e
-    # Log the error and send a proper error response
-    Rails.logger.error "ERROR UPDATING ORDER: #{e.message}"
-    render json: { status: "error", message: e.message }, status: 500
-  end
 
-  def reorder_params
-    params.require(:reorder).permit(:section_id, :position)
+    render json: { message: 'Sections reordered successfully' }, status: :ok
+  rescue => e
+    render json: { error: e.message }, status: :unprocessable_entity
   end
 end
+

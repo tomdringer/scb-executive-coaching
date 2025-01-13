@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index'
 
-  post "update_sections_order", to: "reorder#update_sections_order"
+  resources :reorder do
+    patch :move
+  end
+  
+  post 'reorder/update_sections_order', to: 'reorder#update_sections_order'
 
   post 'uploader/image' => 'uploader#image'
 

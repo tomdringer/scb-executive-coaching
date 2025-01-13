@@ -1,0 +1,21 @@
+<div class="hidden lg:flex lg:gap-x-12">
+  <% if @menu_sections.present? %>
+	<% @menu_sections.order(:position).each do |section| %>
+	  <% unless section.hide_menu %>
+		<!-- If the item is a homepage section -->
+		<% if section.show_on_home %>
+		  <a href="<%= "#{root_path}##{section.name.downcase}" %>"
+			 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+			<%= section.name %>
+		  </a>
+		<% else %>
+		  <!-- If the item is a standalone page -->
+		  <a href="<%= eval(section.custom_link) %>"
+			 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">
+			<%= section.name %>
+		  </a>
+		<% end %>
+	  <% end %>
+	<% end %>
+  <% end %>
+</div>

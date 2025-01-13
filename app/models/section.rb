@@ -3,7 +3,8 @@ class Section < ApplicationRecord
   validates :body, presence: false
   validates :name, presence: true
   validates :background_colour, presence: true
-  default_scope { order(:order) }
+  belongs_to :reorder
+  acts_as_list scope: :reorder
 
   private
 end

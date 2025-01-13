@@ -2,58 +2,39 @@ import { Controller } from "@hotwired/stimulus";
 import Sortable from "sortablejs";
 
 export default class extends Controller {
-  static targets = ["list"]; // Declare `list` as a target for the sortable menu
+  static targets = ["list"];
 
   connect() {
-    // Initialize Sortable.js with the `listTarget`
-    this.sortable = new Sortable(this.listTarget, {
-      animation: 150,
-      onEnd: (event) => this.reorder(event), // Trigger `reorder` on end of sorting
+    this.sortable = Sortable.create(this.listTarget, {
+      onEnd: this.end.bind(this),
+      animation: 150
     });
-
-    console.log("Menu drag-and-drop initialized!");
   }
 
-  reorder(event) {
-    // Collect and map the sorted element IDs based on their order in the list
-    const sortedIds = Array.from(this.listTarget.children).map(
-      (child) => parseInt(child.dataset.sectionId, 10) // Convert to integers
-    );
+  end(event) {
+    const ids = Array.from(this.listTarget.children).map(child => child.dataset.id);
 
-    // Send the updated order to the server
-    this.updateOrder(sortedIds);
-    console.log("Sorted IDs being sent:", sortedIds);
-  }
-
-  updateOrder(sortedIds) {
-    // Perform a POST request to the backend with the new order of IDs
-    fetch("/update_sections_order", {
-      method: "POST",
+    fetch('/reorder/update_sections_order', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       },
-      body: JSON.stringify({ ids: sortedIds }), // Include the sorted IDs in the body
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to update order");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Order updated successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error updating order:", error);
-      });
-  }
-
-  disconnect() {
-    // Destroy the Sortable.js instance when the controller disconnects
-    if (this.sortable) {
-      this.sortable.destroy();
-      console.log("Menu drag-and-drop destroyed.");
-    }
+      body: JSON.stringify({ ids: ids })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    }).then(data => {
+      if (data.message) {
+        alert(data.message);
+      } else if (data.error) {
+        alert(data.error);
+      }
+    }).catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
   }
 }
+
