@@ -35,7 +35,7 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     @section = GlobalID::Locator.locate_signed(params[:sgid])
-    @section.insert_at(params[:position])
+    @item.insert_at(params[:position])
 
     if @section.update(section_params)
       redirect_to root_path, notice: 'Section was successfully updated.'
