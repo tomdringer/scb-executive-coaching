@@ -1,9 +1,14 @@
-#policy_content{
+#policy_content, #sections_list{
     p, h1, h2, h3, h4, h5, h6, section{
         margin-bottom: 10px;
     }
     a{
         color: #5893D4;
         text-decoration: underline;
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 5px;
     }
 }

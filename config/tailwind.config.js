@@ -21,6 +21,7 @@ module.exports = {
         'scb-blue': '#5893D4',
         'scb-green': '#44CF6C',
         'scb-gray': '#E7ECEF',
+        'scb-dark-gray': '#737373',
         'scb-white': '#ffffff',
         'red-700': '#E53E3E',
       },

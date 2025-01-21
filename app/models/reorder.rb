@@ -1,5 +1,4 @@
 class Reorder < ApplicationRecord
-  acts_as_list
   validates :position, presence: true
   validates :position, numericality: { only_integer: true, greater_than: 0 }
   #has_many :sections, -> { order(position: :asc) }, dependent: :destroy

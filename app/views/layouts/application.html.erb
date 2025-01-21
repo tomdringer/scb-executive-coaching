@@ -82,7 +82,7 @@
 
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <% if user_signed_in? %>
-            <%= link_to "Admin", admin_path, class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
+            <%= link_to "Admin", admin_root_path, class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete },  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
           <% else %>
             <a href="/users/sign_up" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">Sign up</a>
@@ -116,7 +116,7 @@
 
               <div class="py-6">
                 <% if user_signed_in? %>
-                  <%= link_to "Admin", admin_path,  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
+                  <%= link_to "Admin", admin_root_path, class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete },  class:"block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950" %>
                 <% else %>
                   <a href="/users/sign_up" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-scb-white hover:bg-gray-950">Sign up</a>

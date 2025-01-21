@@ -31,11 +31,14 @@ export default class extends Controller {
 
   connect() {
     tinymce.init({
+      images_upload_credentials: true,
+      images_reuse_filename: true,
+      automatic_uploads: true,
       selector: `#${this.textareaTarget.id}`,
       plugins: 'image table fullscreen code link lists advlist autolink charmap directionality nonbreaking visualchars visualblocks wordcount searchreplace save',
       toolbar: 'bold italic link undo redo forecolor backcolor bullist numlist outdent indent table image code save',
       valid_elements: '*[*]',
-      extended_valid_elements: 'table[width|height|cellspacing|cellpadding|border|align|class|style],tr,td,th[style|colspan|rowspan|width|height|align|valign|scope],tbody,thead,tfoot, section, p',
+      extended_valid_elements: 'table[width|height|cellspacing|cellpadding|border|align|class|style],tr,td,th[style|colspan|rowspan|width|height|align|valign|scope],tbody,thead,tfoot,section,p',
       forced_root_block: false,
       entity_encoding: 'html',
       remove_trailing_brs: false,
@@ -51,7 +54,7 @@ export default class extends Controller {
       },
       images_upload_handler: (blobInfo, progress) => {
         return new Promise((resolve, reject) => {
-          let formData = new FormData();
+          const formData = new FormData();
           formData.append('file', blobInfo.blob(), blobInfo.filename());
 
           fetch('/uploader/image', {
@@ -70,19 +73,18 @@ export default class extends Controller {
               return response.json();
             })
             .then(result => {
-              if (result.error) {
-                reject(result.error);
+              if (result.location && result.location.match(/^https?:\/\/.+/)) { // Validate the returned URL
+                resolve(result.location); // Use direct image URL
               } else {
-                // Ensure `src` is the direct image URL returned from the server
-                resolve(result.location);
+                reject('Image upload failed: Invalid image URL returned from server.');
               }
             })
             .catch(error => {
               reject('Image upload failed: ' + error.message);
             });
         });
-      }
-    })
+      },
+    });
   }
 
   updateTextareaContent(editor) {

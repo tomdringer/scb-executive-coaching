@@ -33,10 +33,6 @@ class SectionsController < ApplicationController
   end
 
   def update
-    @section = Section.find(params[:id])
-    @section = GlobalID::Locator.locate_signed(params[:sgid])
-    @item.insert_at(params[:position])
-
     if @section.update(section_params)
       redirect_to root_path, notice: 'Section was successfully updated.'
 
@@ -62,6 +58,6 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu, :show_on_home, :position)
+    params.require(:section).permit(:order, :name, :title, :hide_title, :reviews, :title_colour, :title_size, :body, :custom_link, :background_colour, :hide_menu, :show_on_home)
   end
 end

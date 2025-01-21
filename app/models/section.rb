@@ -4,5 +4,4 @@ class Section < ApplicationRecord
   validates :name, presence: true
   validates :background_colour, presence: true
 
-  private
 end

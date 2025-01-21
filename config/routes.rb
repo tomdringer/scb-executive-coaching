@@ -9,7 +9,18 @@ Rails.application.routes.draw do
   resources :coachings, path: 'coaching'
   root 'home#index'
 
-  get 'admin', to: 'admin#index'
+  namespace :admin do
+    root to: 'dashboard#index'
+    
+    resources :blogs
+    resources :resources
+    resources :sections
+    resources :users
+    resources :reviews
+    resources :categories
+    resources :policies
+    resources :coaching
+  end
 
   resources :reorder do
     patch :move

@@ -58,17 +58,20 @@
 </div>
 
   <div class="menu-builder-section bg-gray-100 p-6 rounded-md shadow-md w-50">
+	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Sections</h2>
+	<%= render partial: 'admin/dashboard/partials/sections', locals: { sections: @sections } %>
+
 	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Menu Builder</h2>
-	<%= render partial: 'admin/partials/menu_builder', locals: { sections: @home_sections } %>
+	<%= render partial: 'admin/dashboard/partials/menu_builder', locals: { sections: @home_sections } %>
 
 	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Coaching</h2>
-	<%= render partial: 'admin/partials/coaching', locals: { coaching: @coaching } %>
+	<%= render partial: 'admin/dashboard/partials/coaching', locals: { coaching: @coaching } %>
 
 	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Categories</h2>
-	<%= render partial: 'admin/partials/categories', locals: { category: @categories } %>
+	<%= render partial: 'admin/dashboard/partials/categories', locals: { category: @categories } %>
 
 	<h2 class="px-6 text-lg font-semibold mb-2 font-poppins">Policies</h2>
-	<%= render partial: 'admin/partials/policies', locals: { policy: @policies } %>
+	<%= render partial: 'admin/dashboard/partials/policies', locals: { policy: @policies } %>
 
   </div>
 </div>

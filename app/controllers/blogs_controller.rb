@@ -26,6 +26,11 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
+
+    if params[:title] != @blog.title.parameterize
+      redirect_to blog_path(@blog.id, @blog.title.parameterize), status: :moved_permanently
+    end
+
     @blog_categories = Category.where(area: 'blog')
   end
 
