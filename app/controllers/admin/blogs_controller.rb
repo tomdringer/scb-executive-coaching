@@ -1,3 +1,4 @@
-Module Admin
-class BlogsController < Admin::BaseController
+module Admin
+  class BlogsController < Admin::BaseController
+  end
 end
