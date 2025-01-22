@@ -11,6 +11,7 @@ Rails.application.configure do
   config.assets.debug = true
   config.assets.check_precompiled_asset = false
   config.assets.digest = false
+  config.assets.cache_store = :null_store
 
   config.action_mailer_default_url_options = { host: 'https://scb-96.localcan.dev' }
   Rails.application.routes.default_url_options[:host] = 'https://scb-96.localcan.dev'
@@ -46,19 +47,10 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join("tmp/caching-dev.txt").exist?
-    config.action_controller.perform_caching = true
-    config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
-    }
-  else
-    config.action_controller.perform_caching = false
+  config.cache_store = :null_store
 
-    config.cache_store = :null_store
-  end
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

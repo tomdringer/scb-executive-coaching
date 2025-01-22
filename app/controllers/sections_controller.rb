@@ -35,7 +35,7 @@ class SectionsController < ApplicationController
   def update
     if @section.update(section_params)
       redirect_to root_path, notice: 'Section was successfully updated.'
-
+    else
       Rails.logger.debug(@section.errors.full_messages)
       render :edit, status: :unprocessable_entity
     end

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="p-6 max-w-7xl mx-auto">
-    <%= link_to 'Create Section', new_section_path, class: "bg-scb-gray text-scb-black rounded-lg p-3 m-3 ml-0" %>
+    <%= link_to 'Create Section', new_section_path, class: "bg-scb-gray text-scb-black rounded-lg p-3 m-3 ml-0 button" %>
 </div>
 <% end %>
 
@@ -26,12 +26,11 @@
 
       <div class="flex gap-3 mx-auto max-w-7xl px-6">
         <% if user_signed_in? %>
-        <%= link_to 'Edit Section', edit_section_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3" %>
-        <%= link_to "Delete Section", section_path(section), "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white" %>
+        <%= link_to 'Edit Section', edit_section_path(section), class: "#{button_bg_class} #{button_text_class} rounded-lg p-3 no-underline button" %>
+        <%= link_to "Delete Section", section_path(section), "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure?", class: "bg-red-700 rounded-lg p-3 text-scb-white button" %>
           <% end %>
       </div>
 
       </div>
-    </div>
   </section>
 <% end %>

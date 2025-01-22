@@ -1,8 +1,8 @@
 #policy_content, #sections_list{
-    p, h1, h2, h3, h4, h5, h6, section{
+    p, h1, h2, h3, h4, h5, h6{
         margin-bottom: 10px;
     }
-    a{
+    a:not(.button){
         color: #5893D4;
         text-decoration: underline;
     }
