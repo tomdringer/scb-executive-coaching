@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'dashboard#index'
-    
+
     resources :blogs
     resources :resources
     resources :sections
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :reorder do
     patch :move
   end
-  
+
   post 'reorder/update_sections_order', to: 'reorder#update_sections_order'
 
   post 'uploader/image' => 'uploader#image'
@@ -41,28 +41,21 @@ Rails.application.routes.draw do
   get 'contact_us/sent'
   get 'contact_us/error'
 
-  resources :blogs, path: :blog, only: [:index, :show, :new, :create, :edit, :update] do
-    member do
-      get ':title', action: :show, as: 'with_title'
-    end
-  end
+  resources :blogs, path: :blog
 
-  resources :resources, only: [:index, :show, :new, :create, :edit, :update] do
-    member do
-      get ':title', action: :show, as: 'with_title'
-    end
-  end
+  resources :resources
 
   require 'active_storage/engine'
   ActiveStorage::Engine.routes.draw do
-    get '/rails/active_storage/blobs/redirect/:signed_id/*filename' => 'active_storage/blobs#show', as: :rails_service_blob
+    get '/rails/active_storage/blobs/redirect/:signed_id/*filename' => 'active_storage/blobs#show',
+        as: :rails_service_blob
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # test for deployment
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Defines the root path route ("/")
   # root "posts#index"

@@ -47,7 +47,7 @@
     <% end %>
 
     <% if user_signed_in? %>
-    <%= link_to "View", with_title_resource_path(resource.id, resource.title.parameterize) %>
+    <%= link_to "View", resource_path(resource.id) %>
       <% end %>
 
   </div>
